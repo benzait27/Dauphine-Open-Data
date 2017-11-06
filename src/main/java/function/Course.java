@@ -1,6 +1,7 @@
 package function;
 
 public class Course {
+	//the id of course
  private String id ;
 
 public String getId() {
