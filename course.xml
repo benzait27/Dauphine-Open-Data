@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:Course xmlns:ns2="Course2" idCourse="aaaa">
+    <author>aaaa</author>
+    <courseName>aaaa</courseName>
+    <courseTypes>
+        <type>TD</type>
+        <volume>10</volume>
+    </courseTypes>
+    <courseTypes>
+        <type>CM</type>
+        <volume>10</volume>
+    </courseTypes>
+    <credits>12</credits>
+    <description>aaaaa</description>
+    <references>eee</references>
+    <teachingLangs>Anglais</teachingLangs>
+</ns2:Course>
