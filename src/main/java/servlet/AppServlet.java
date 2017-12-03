@@ -4,9 +4,11 @@ package servlet;
  * Created by Ziad on 07/11/2017.
  */
 
+import entity.Teaching;
+
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.util.Locale;
+import java.time.LocalDateTime;
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.annotation.WebServlet;
@@ -22,7 +24,12 @@ public class AppServlet  extends HttpServlet {
         resp.setCharacterEncoding(StandardCharsets.UTF_8.name());
         resp.setContentType(MediaType.TEXT_PLAIN);
         final ServletOutputStream out = resp.getOutputStream();
-        out.println("Hello test");
+
+        // TRY TEACHING FORMAT ...
+        Teaching teaching = new Teaching(null, LocalDateTime.now(),"","" );
+
+        out.println("TEST : "+teaching.getDateWithFormat("dd MM YYYY"));
+        out.println("TEST null : "+teaching.getDateWithFormat(null));
     }
 }
 

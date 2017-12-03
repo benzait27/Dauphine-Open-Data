@@ -24,8 +24,8 @@ public class Course  implements Serializable {
 	private String idCourse;
 	// the description course
 	private String description;	
-	//the author's course; the type of this attribute will be change to Person when they will finish the implementation of the Person class 
-	private String author;
+	// replace String author by Person author (Basics)
+	private Person author;
 	// the name of the course
 	private String courseName;
 	// All the course type as CM, TD and TP and their volume (number of hours for each type)
@@ -42,7 +42,7 @@ public class Course  implements Serializable {
 		
 		}
 
-	public Course(String idCourse, String description, String author, String courseName, HashSet<CourseType> courseTypes,
+	public Course(String idCourse, String description, Person author, String courseName, HashSet<CourseType> courseTypes,
 			HashSet<String> references, TeachingLang teachingLangs, int credits) {
 		this.idCourse = idCourse;
 		this.description = description;
@@ -74,11 +74,11 @@ public class Course  implements Serializable {
 		this.description = description;
 	}
 
-	public String getAuthor() {
+	public Person getAuthor() {
 		return author;
 	}
 
-	public void setAuthor(String author) {
+	public void setAuthor(Person author) {
 		this.author = author;
 	}
 
