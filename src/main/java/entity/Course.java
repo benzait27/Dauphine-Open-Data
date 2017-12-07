@@ -30,8 +30,6 @@ public class Course  implements Serializable {
 	private String courseName;
 	// All the course type as CM, TD and TP and their volume (number of hours for each type)
 	private Set<CourseType> courseTypes = new HashSet<CourseType>() ;
-	// list of the course's references
-	private Set<String> references = new HashSet<String>();
 	// the language of the course in witch it' written 
 	@Enumerated(EnumType.STRING)
 	private TeachingLang teachingLangs ;
@@ -43,13 +41,12 @@ public class Course  implements Serializable {
 		}
 
 	public Course(String idCourse, String description, Person author, String courseName, HashSet<CourseType> courseTypes,
-			HashSet<String> references, TeachingLang teachingLangs, int credits) {
+		TeachingLang teachingLangs, int credits) {
 		this.idCourse = idCourse;
 		this.description = description;
 		this.author = author;
 		this.courseName = courseName;
 		this.courseTypes = courseTypes;
-		this.references = references;
 		this.teachingLangs = teachingLangs;
 		this.credits = credits;
 	}
@@ -96,14 +93,6 @@ public class Course  implements Serializable {
 
 	public void setCourseTypes(Set<CourseType> courseTypes) {
 		this.courseTypes = courseTypes;
-	}
-
-	public Set<String> getReferences() {
-		return references;
-	}
-
-	public void setReferences(Set<String> references) {
-		this.references = references;
 	}
 
 	public TeachingLang getTeachingLangs() {
