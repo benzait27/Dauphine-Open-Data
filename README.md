@@ -1,6 +1,5 @@
 
-https://travis-ci.org/benzait27/Dauphine-Open-Data.svg?branch=develop
-
+[![Build Status](https://travis-ci.org/benzait27/Dauphine-Open-Data.svg?branch=master)](https://travis-ci.org/benzait27/Dauphine-Open-Data)
 
 # Dauphine Open Data
 
