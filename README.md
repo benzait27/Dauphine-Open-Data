@@ -1,6 +1,8 @@
 
 [![Build Status](https://travis-ci.org/benzait27/Dauphine-Open-Data.svg?branch=develop)](https://travis-ci.org/benzait27/Dauphine-Open-Data)
 
+[![GitHub version](https://badge.fury.io/gh/benzait27%2FDauphine-Open-Data.svg)](https://badge.fury.io/gh/benzait27%2FDauphine-Open-Data)
+
 # Dauphine Open Data
 
 L’université Paris-Dauphine crée et met à jour de nombreuses données publiques, qui sont parfois mises à disposition uniquement via son site web, voire parfois non mises à disposition et simplement conservées dans des bases de données.
