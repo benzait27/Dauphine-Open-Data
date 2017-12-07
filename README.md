@@ -1,3 +1,7 @@
+
+https://travis-ci.org/benzait27/Dauphine-Open-Data.svg?branch=develop
+
+
 # Dauphine Open Data
 
 Dans le cadre de notre master 2 MIAGE SITN, nous devons créer un projet à but éducatif permettantde ...
