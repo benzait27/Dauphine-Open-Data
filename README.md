@@ -3,7 +3,12 @@
 
 # Dauphine Open Data
 
-Dans le cadre de notre master 2 MIAGE SITN, nous devons créer un projet à but éducatif permettantde ...
+L’université Paris-Dauphine crée et met à jour de nombreuses données publiques, qui sont parfois mises à disposition uniquement via son site web, voire parfois non mises à disposition et simplement conservées dans des bases de données.
+
+Le mouvement open data considère que les données bénéficient d’une exposition maximale, dans des formats facilement lisibles par des machines. Entre autres bénéfices, cette approche facilite la réutilisation et l’innovation.
+
+Ce projet a pour but de créer une plate-forme qui servira à la mise à disposition de certaines données publiques de Paris-Dauphine. Il visera à mettre également à disposition certaines données non publiques après authentification. Par exemple, un enseignant a droit d’accès aux adresses e-mail des étudiants qui suivent son cours, mais ces données ne sont pas publiques.
+
 
 ## Installation dev
 
