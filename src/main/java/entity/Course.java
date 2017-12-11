@@ -1,9 +1,12 @@
 package entity;
 
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Locale;
 import java.util.Set;
 
+import javax.ejb.Local;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -12,6 +15,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
+
+import ch.qos.logback.core.subst.Token.Type;
 @XmlRootElement(name="Course", namespace="Course2")
 @Entity
 
@@ -25,30 +30,25 @@ public class Course  implements Serializable {
 	// the description course
 	private String description;	
 	// replace String author by Person author (Basics)
-	private Person author;
+	private Set<PersonAndCourseType> teachersAndCourseType;
 	// the name of the course
 	private String courseName;
-	// All the course type as CM, TD and TP and their volume (number of hours for each type)
-	private Set<CourseType> courseTypes = new HashSet<CourseType>() ;
 	// the language of the course in witch it' written 
-	@Enumerated(EnumType.STRING)
-	private TeachingLang teachingLangs ;
+	private Locale teachingLangs ;
 	// the course's credit
 	private int credits;
-	 
+	// le parcours 
+	private TypeParcours  parcours ;
+	
+	
+	
+	
 	public Course() {
 		
 		}
 
-	public Course(String idCourse, String description, Person author, String courseName, HashSet<CourseType> courseTypes,
-		TeachingLang teachingLangs, int credits) {
-		this.idCourse = idCourse;
-		this.description = description;
-		this.author = author;
+	public Course( String courseName) {
 		this.courseName = courseName;
-		this.courseTypes = courseTypes;
-		this.teachingLangs = teachingLangs;
-		this.credits = credits;
 	}
 
 	// put the idCourse on property of the element
@@ -71,12 +71,12 @@ public class Course  implements Serializable {
 		this.description = description;
 	}
 
-	public Person getAuthor() {
-		return author;
+	public Set<PersonAndCourseType>  getAuthor() {
+		return teachersAndCourseType;
 	}
 
-	public void setAuthor(Person author) {
-		this.author = author;
+	public void setAuthor(Set<PersonAndCourseType> teachersAndCourseType) {
+		this.teachersAndCourseType =  teachersAndCourseType;
 	}
 
 	public String getCourseName() {
@@ -87,19 +87,11 @@ public class Course  implements Serializable {
 		this.courseName = courseName;
 	}
 
-	public Set<CourseType> getCourseTypes() {
-		return courseTypes;
-	}
-
-	public void setCourseTypes(Set<CourseType> courseTypes) {
-		this.courseTypes = courseTypes;
-	}
-
-	public TeachingLang getTeachingLangs() {
+	public Locale getTeachingLangs() {
 		return teachingLangs;
 	}
 
-	public void setTeachingLangs(TeachingLang teachingLangs) {
+	public void setTeachingLangs(Locale teachingLangs) {
 		this.teachingLangs = teachingLangs;
 	}
 
@@ -111,6 +103,13 @@ public class Course  implements Serializable {
 		this.credits = credits;
 	}
 
-	
+	public TypeParcours getParcours() {
+		return parcours;
+	}
+
+	public void setParcours(TypeParcours parcours) {
+		this.parcours = parcours;
+	}
+
 	
 }
