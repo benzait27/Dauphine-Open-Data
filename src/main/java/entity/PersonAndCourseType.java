@@ -18,8 +18,8 @@ public class PersonAndCourseType {
 	
 	/**
 	 * Constructor with fields
-	 * @param p
-	 * @param ct
+	 * @param p  the teacher
+	 * @param ct the list of courses
 	 */
 	public PersonAndCourseType(Person p,Set<CourseType> ct) {
 		super();
