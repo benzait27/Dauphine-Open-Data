@@ -3,12 +3,24 @@ package entity;
 import java.util.HashSet;
 import java.util.Set;
 
-// this class to save to link between the teacher and witch kind of course he could does (TD, CM ...)
+/**
+ * This class to save to link between the teacher and witch kind of course he could does (TD, CM ...)
+ */
 public class PersonAndCourseType {
+	/**
+	 * the person  witch is the teacher
+	 */
 	Person p ;
+	/**
+	 * the list of courses that he could teaching 
+	 */
 	private Set<CourseType> courseTypes = new HashSet<CourseType>() ;
 	
-	
+	/**
+	 * Constructor with fields
+	 * @param p
+	 * @param ct
+	 */
 	public PersonAndCourseType(Person p,Set<CourseType> ct) {
 		super();
 		this.p = p;

@@ -1,5 +1,11 @@
 package entity;
 
+/**
+ * This enumerate class provide us a list of parcours's course  
+ * @author BENZAIT Zakaria
+ * @author Ouafa BOUCENNA 
+ *
+ */
 public enum TypeParcours {
 
 	M1_MIAGE_SITN,

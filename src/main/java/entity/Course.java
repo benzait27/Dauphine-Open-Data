@@ -1,52 +1,69 @@
 package entity;
 
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
-
-import javax.ejb.Local;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import ch.qos.logback.core.subst.Token.Type;
 @XmlRootElement(name="Course", namespace="Course2")
 @Entity
-
+/**
+ * Course object to represent a Dauphine course. 
+ * @author     Zakaria BENZAIT  
+ * @author     Ouafa BOUCENNA
+ * @version     %I%, %G%
+ * @since       1.0
+ */
 public class Course  implements Serializable {
 	
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
+	/**
+     *  The id Course
+     */
 	private String idCourse;
-	// the description course
+	/**
+     *  the description course
+     */
 	private String description;	
-	// replace String author by Person author (Basics)
+	/**
+     * List of teachers and witch kind of course they will teach
+     */
 	private Set<PersonAndCourseType> teachersAndCourseType;
-	// the name of the course
+	/**
+     * The name of the course
+     */ 
 	private String courseName;
-	// the language of the course in witch it' written 
+	/**
+     * the language of the course in witch it written 
+     */
 	private Locale teachingLangs ;
-	// the course's credit
+	/**
+     * The course's credit
+     */
 	private int credits;
-	// le parcours 
+	/**
+     * Le parcours 
+     */
 	private TypeParcours  parcours ;
 	
-	
-	
-	
+	 /** 
+	  * Course constructor without fields
+     */
 	public Course() {
 		
 		}
-
+	/** 
+	  * Course constructor with fields
+	  * 
+	  * @param courseName  the name of the course ( Big Data, ...)
+    */
+	
 	public Course( String courseName) {
 		this.courseName = courseName;
 	}
@@ -55,6 +72,8 @@ public class Course  implements Serializable {
 	@XmlAttribute(name="idCourse")
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+	
+	
 	public String getIdCourse() {
 		return idCourse;
 	}
