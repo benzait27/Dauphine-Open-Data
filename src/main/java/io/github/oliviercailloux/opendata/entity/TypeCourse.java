@@ -1,4 +1,4 @@
-package entity;
+package io.github.oliviercailloux.opendata.entity;
 
 /**
  * This enumerate class provide us a list of course types as TD, CM 

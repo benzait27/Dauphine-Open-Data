@@ -1,11 +1,11 @@
-package entity;
-
-import utils.DateUtils;
+package io.github.oliviercailloux.opendata.entity;
 
 
-import javax.inject.Inject;
+
 import java.time.LocalDateTime;
 import java.util.Optional;
+
+import io.github.oliviercailloux.opendata.utils.DateUtils;
 
 /**
  * Created by Ziad & Sofian on 03/12/2017.

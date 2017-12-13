@@ -1,14 +1,16 @@
-package entity;
+package io.github.oliviercailloux.opendata.entity;
 
 import java.io.Serializable;
 import java.util.Locale;
 import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
+
 
 @XmlRootElement(name="Course", namespace="Course2")
 @Entity

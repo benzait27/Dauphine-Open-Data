@@ -1,12 +1,4 @@
-package servlet;
-
-/**
- * Created by Ziad on 07/11/2017.
- */
-
-import entity.Teaching;
-import ezvcard.Ezvcard;
-import ezvcard.VCard;
+package io.github.oliviercailloux.opendata.servlet;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -19,6 +11,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.core.MediaType;
+import ezvcard.Ezvcard;
+import ezvcard.VCard;
+import io.github.oliviercailloux.opendata.entity.Teaching;
+
+
+/**
+ * Created by Ziad on 07/11/2017.
+ */
+
+
 
 @WebServlet("/appServlet")
 public class AppServlet  extends HttpServlet {
@@ -45,5 +47,4 @@ public class AppServlet  extends HttpServlet {
         		out.println(fullName);
     }
 }
-
 

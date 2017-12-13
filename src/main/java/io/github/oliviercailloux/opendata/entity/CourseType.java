@@ -1,4 +1,4 @@
-package entity;
+package io.github.oliviercailloux.opendata.entity;
 
 /**
  * CourseType is an  object to represent type of course {( TD,30H), (CM,15H), ...}. 
