@@ -1,4 +1,4 @@
-package utils;
+package io.github.oliviercailloux.opendata.utils;
 
 
 import javax.enterprise.context.ApplicationScoped;

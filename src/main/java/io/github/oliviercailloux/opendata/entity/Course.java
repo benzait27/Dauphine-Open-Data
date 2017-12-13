@@ -1,4 +1,4 @@
-package entity;
+package io.github.oliviercailloux.opendata.entity;
 
 import java.io.Serializable;
 import java.util.HashSet;
