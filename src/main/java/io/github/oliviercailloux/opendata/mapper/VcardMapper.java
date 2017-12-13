@@ -1,11 +1,10 @@
-package mapper;
+package io.github.oliviercailloux.opendata.mapper;
 
-import entity.Person;
-import ezvcard.Ezvcard;
+
 import ezvcard.VCard;
 import ezvcard.property.Expertise;
-import ezvcard.property.Organization;
 import ezvcard.property.StructuredName;
+import io.github.oliviercailloux.opendata.entity.Person;
 
 public class VcardMapper {
 
