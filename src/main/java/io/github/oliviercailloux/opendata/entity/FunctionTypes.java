@@ -1,4 +1,4 @@
-package entity;
+package io.github.oliviercailloux.opendata.entity;
 
 /**
  * Created by Ziad on 03/12/2017.

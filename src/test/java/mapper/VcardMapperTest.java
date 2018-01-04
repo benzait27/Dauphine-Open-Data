@@ -1,11 +1,12 @@
 package mapper;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import entity.Person;
 import ezvcard.VCard;
+import io.github.oliviercailloux.opendata.entity.Person;
+import io.github.oliviercailloux.opendata.mapper.VcardMapper;
 
 public class VcardMapperTest {
 

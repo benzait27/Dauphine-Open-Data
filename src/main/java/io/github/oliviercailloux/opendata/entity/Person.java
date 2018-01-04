@@ -1,4 +1,4 @@
-package entity;
+package io.github.oliviercailloux.opendata.entity;
 
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -22,7 +22,23 @@ public class Person {
     @Size(min = 8,max=8)
     String identifiant;
 
-    @NotNull
+    public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	@NotNull
     private String firstName;
 
     @NotNull
