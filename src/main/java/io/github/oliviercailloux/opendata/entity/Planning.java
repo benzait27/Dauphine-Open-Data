@@ -14,7 +14,7 @@ public class Planning {
      * depending on the future treatment, we can replace
      *  by arrayList or Linkedlist or stream in java 8 ?
      */
-    private List<Teaching> teachings;
+    private List<Lecture> lectures;
 
 
     public Person getPerson() {
@@ -25,11 +25,11 @@ public class Planning {
         this.person = person;
     }
 
-    public List<Teaching> getTeachings() {
-        return teachings;
+    public List<Lecture> getTeachings() {
+        return lectures;
     }
 
-    public void setTeachings(List<Teaching> teachings) {
-        this.teachings = teachings;
+    public void setTeachings(List<Lecture> lectures) {
+        this.lectures = lectures;
     }
 }

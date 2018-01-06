@@ -53,16 +53,18 @@ public class Lecture {
      */
     private String group;
 
+    /**
+     *
+     *
+     *   the teacher responsible for the lecture.
+     */
+    private Person teacher;
+
+
 
     public Lecture() {
     }
 
-    public Lecture(Course course, LocalDateTime date, String room, String group) {
-        this.course = course;
-        this.date = date;
-        this.room = room;
-        this.group = group;
-    }
 
     /**
      *  Méthode who return date attribute with format defined in param
@@ -105,5 +107,13 @@ public class Lecture {
 
     public void setGroup(String group) {
         this.group = group;
+    }
+
+    public Person getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(Person teacher) {
+        this.teacher = teacher;
     }
 }
