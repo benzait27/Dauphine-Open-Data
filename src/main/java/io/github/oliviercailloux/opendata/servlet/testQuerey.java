@@ -26,7 +26,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.ObjectDao;
+import io.github.oliviercailloux.opendata.dao.ObjectDao;
 
 
 
