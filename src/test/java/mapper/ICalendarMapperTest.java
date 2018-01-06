@@ -13,7 +13,7 @@ import ezvcard.VCard;
 import io.github.oliviercailloux.opendata.entity.Course;
 import io.github.oliviercailloux.opendata.entity.Person;
 import io.github.oliviercailloux.opendata.entity.Planning;
-import io.github.oliviercailloux.opendata.entity.Teaching;
+import io.github.oliviercailloux.opendata.entity.Lecture;
 import io.github.oliviercailloux.opendata.mapper.ICalendarMapper;
 import io.github.oliviercailloux.opendata.mapper.VcardMapper;
 
@@ -23,10 +23,10 @@ public class ICalendarMapperTest {
 	public void testEncodePlanningToICalendar() {
         Course course = new Course();
         course.setDescription("test");
-        Teaching teaching = new Teaching(course, LocalDateTime.now(),"","" );
+        Lecture teaching = new Lecture(course, LocalDateTime.now(),"","" ,null);
         
         Planning planning = new Planning();
-		List<Teaching> teachings = new ArrayList<Teaching>();
+		List<Lecture> teachings = new ArrayList<Lecture>();
 		teachings.add(teaching);
 		
 		planning.setTeachings(teachings);
