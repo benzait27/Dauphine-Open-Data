@@ -12,7 +12,7 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.core.MediaType;
 
-import servlet.AppServlet;
+import io.github.oliviercailloux.opendata.servlet.AppServlet;
 
 @RequestScoped
 public class ServletHelper {
