@@ -44,7 +44,7 @@ public class DateUtils {
     }
     
     /**
-     * Convert a LocalDateTime to a Date with local timezone
+     * Convert a LocalDateTime to a Date using local timezone
      * @param ldt
      * @return Date
      */

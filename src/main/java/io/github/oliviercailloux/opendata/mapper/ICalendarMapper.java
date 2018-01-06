@@ -11,11 +11,22 @@ import io.github.oliviercailloux.opendata.entity.Person;
 import io.github.oliviercailloux.opendata.entity.Planning;
 import io.github.oliviercailloux.opendata.utils.DateUtils;
 
+/**
+ * A mapper class used to convert Planning entities to ICalendar entities  
+ * @author GERVRAUD Thomas
+ * @author Ouafa BOUCENNA 
+ *
+ */
 public class ICalendarMapper {
 
 	public ICalendarMapper() {
 	}
 	
+	/**
+	 * Convert a planning entity into an ICalendar entity
+	 * @param Planning
+	 * @return ICalendar
+	 */
 	public ICalendar encodePlanningToICalendar(Planning planning) {
 		
 		ICalendar ical = new ICalendar();
