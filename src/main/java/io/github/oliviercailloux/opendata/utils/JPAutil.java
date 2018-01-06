@@ -1,4 +1,4 @@
-package package io.github.oliviercailloux.opendata.utils;
+package io.github.oliviercailloux.opendata.utils;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
