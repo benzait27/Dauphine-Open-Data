@@ -9,9 +9,9 @@ import io.github.oliviercailloux.opendata.utils.DateUtils;
 
 /**
  * Created by Ziad & Sofian on 03/12/2017.
- * class that represents a class with a date, a room, and a group of participants
+ * class that represents a lecture with a date, a room, and a group of participants
  */
-public class Teaching {
+public class Lecture {
 
 
     /**
@@ -28,7 +28,6 @@ public class Teaching {
 
     **/
 
-    //@Inject
     DateUtils dateUtils;
 
     /**
@@ -55,10 +54,10 @@ public class Teaching {
     private String group;
 
 
-    public Teaching() {
+    public Lecture() {
     }
 
-    public Teaching(Course course, LocalDateTime date, String room, String group) {
+    public Lecture(Course course, LocalDateTime date, String room, String group) {
         this.course = course;
         this.date = date;
         this.room = room;
