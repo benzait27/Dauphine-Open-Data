@@ -2,9 +2,12 @@ package io.github.oliviercailloux.opendata.utils;
 
 
 import javax.enterprise.context.ApplicationScoped;
+
 import java.time.DateTimeException;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -38,6 +41,15 @@ public class DateUtils {
         }
 
         return localDate.format(dateTimeFormatter);
+    }
+    
+    /**
+     * Convert a LocalDateTime to a Date with local timezone
+     * @param ldt
+     * @return Date
+     */
+    public static Date transformLocalDateToDate(LocalDateTime ldt) {
+    	return Date.from(ldt.atZone(ZoneId.systemDefault()).toInstant());
     }
 
 
