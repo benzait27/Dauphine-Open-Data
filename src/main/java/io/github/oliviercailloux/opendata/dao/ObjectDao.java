@@ -1,12 +1,12 @@
-
+package io.github.oliviercailloux.opendata.dao;
 
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
-import entity.Course;
-import utils.JPAutil;
+import io.github.oliviercailloux.opendata.entity.Course;
+import io.github.oliviercailloux.opendata.utils.JPAutil;
 
 
 
