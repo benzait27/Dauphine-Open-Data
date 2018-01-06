@@ -65,6 +65,14 @@ public class Lecture {
     public Lecture() {
     }
 
+    public Lecture(Course course, LocalDateTime date, String room, String group, Person teacher) {
+        this.course = course;
+        this.date = date;
+        this.room = room;
+        this.group = group;
+        this.teacher = teacher;
+    }
+
 
     /**
      *  Méthode who return date attribute with format defined in param

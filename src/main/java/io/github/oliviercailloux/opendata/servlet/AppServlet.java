@@ -19,7 +19,7 @@ import ezvcard.Ezvcard;
 import ezvcard.VCard;
 import io.github.oliviercailloux.opendata.entity.Course;
 import io.github.oliviercailloux.opendata.entity.Planning;
-import io.github.oliviercailloux.opendata.entity.Teaching;
+import io.github.oliviercailloux.opendata.entity.Lecture;
 import io.github.oliviercailloux.opendata.mapper.ICalendarMapper;
 
 
@@ -40,7 +40,7 @@ public class AppServlet  extends HttpServlet {
         // TRY TEACHING FORMAT ...
         Course course = new Course();
         course.setDescription("test");
-        Teaching teaching = new Teaching(course, LocalDateTime.now(),"","" );
+        Lecture teaching = new Lecture(course, LocalDateTime.now(),"","" ,null);
 
         out.println("TEST : "+teaching.getDateWithFormat("dd MM YYYY"));
         out.println("TEST null : "+teaching.getDateWithFormat(null));
@@ -58,7 +58,7 @@ public class AppServlet  extends HttpServlet {
 		
 		// Test ICalendarMapper
 		Planning planning = new Planning();
-		List<Teaching> teachings = new ArrayList();
+		List<Lecture> teachings = new ArrayList();
 		teachings.add(teaching);
 		
 		planning.setTeachings(teachings);

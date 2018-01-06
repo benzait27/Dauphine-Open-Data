@@ -7,7 +7,6 @@ import io.github.oliviercailloux.opendata.utils.*;
  * Created by Ziad on 07/11/2017.
  */
 
-import io.github.oliviercailloux.opendata.entity.Teaching;
 import ezvcard.Ezvcard;
 import ezvcard.VCard;
 
