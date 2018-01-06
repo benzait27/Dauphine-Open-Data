@@ -1,13 +1,13 @@
-package servlet;
+package io.github.oliviercailloux.opendata.servlet;
 
-import entity.Course;
-import utils.*;
+import io.github.oliviercailloux.opendata.entity.Course;
+import io.github.oliviercailloux.opendata.utils.*;
 
 /**
  * Created by Ziad on 07/11/2017.
  */
 
-import entity.Teaching;
+import io.github.oliviercailloux.opendata.entity.Teaching;
 import ezvcard.Ezvcard;
 import ezvcard.VCard;
 
