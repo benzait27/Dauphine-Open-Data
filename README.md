@@ -18,6 +18,14 @@ TODO ...
 ```
  pour les commandes ...
 ```
+## Deploiement
+cf api https://api.eu-gb.bluemix.net
+
+cf login (puis entrer email et mdp)
+
+cf push 
+
+(récupère la configuration manifest lien : http://dauphine-open-data.eu-gb.mybluemix.net)
 
 ## Lancement
 
