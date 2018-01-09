@@ -49,7 +49,7 @@ public class testQuerey  extends HttpServlet {
         out.println(c2.getCourseName());
         
     	
-		 Course c3=  new Course("Android");
+		Course c3=  new Course("Android");
 	     od.ajouter(c3);
 		 out.println("End.");
 	
