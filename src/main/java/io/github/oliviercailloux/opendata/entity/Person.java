@@ -1,7 +1,11 @@
 package io.github.oliviercailloux.opendata.entity;
 
+import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.List;
@@ -9,6 +13,7 @@ import java.util.List;
 /**
  * Created by Ziad & sofian on 03/12/2017.
  */
+@Entity
 public class Person {
 
 
@@ -20,6 +25,8 @@ public class Person {
      */
     @NotNull
     @Size(min = 8,max=8)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     String identifiant;
 
     public String getFirstName() {

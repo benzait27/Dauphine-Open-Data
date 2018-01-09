@@ -5,11 +5,10 @@
 	<persistence-unit name="Dauphine-Open-Data">
 	   <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
 		<non-jta-data-source>java:comp/DefaultDataSource</non-jta-data-source>
-		<class>entity.Course</class>
 		<exclude-unlisted-classes>false</exclude-unlisted-classes>
 		<properties>
 			<property name="javax.persistence.schema-generation.database.action"
-				value="update" />
+				value="drop-and-create" />
 			<property name="eclipselink.logging.level" value="FINE" />
 			<property name="eclipselink.logging.logger" value="JavaLogger" />
 			<property name="eclipselink.logging.level.sql" value="FINE" />
