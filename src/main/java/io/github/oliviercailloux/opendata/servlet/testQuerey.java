@@ -4,7 +4,7 @@ import io.github.oliviercailloux.opendata.entity.Course;
 import io.github.oliviercailloux.opendata.utils.*;
 
 /**
- * Created by Ziad on 07/11/2017.
+ * Created by Zakaria on 07/11/2017.
  */
 
 import ezvcard.Ezvcard;
@@ -26,7 +26,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import io.github.oliviercailloux.opendata.dao.ObjectDao;
+import io.github.oliviercailloux.opendata.dao.CourseDao;
 
 
 
@@ -39,18 +39,20 @@ public class testQuerey  extends HttpServlet {
         
     	@SuppressWarnings("resource")
 		final ServletOutputStream out = new ServletHelper().configureAndGetOutputStream(resp);
-		out.println("I use an application-managed resource-local entity manager.");
-		out.println("My persistence context is transaction-scoped (lifetime scoped to a single transaction).");
+		out.println("Start DAO opretation");
 		out.flush();
 
-	    Course c=  new Course("javaee");
-        ObjectDao  od = new ObjectDao();
+	    Course c=  new Course("javaEE");
+	    CourseDao  od = new CourseDao();
         od.ajouter(c);
-      // Course c2 = od.Consulter(c, "2");
-		//for (Course item : allItems) {
-		//	out.println(c2.getCourseName());
-	//	}
-		out.println("End.");
+        Course c2 =  od.Consulter(new Course(), "1");
+        out.println(c2.getCourseName());
+        
+    	
+		 Course c3=  new Course("Android");
+	     od.ajouter(c3);
+		 out.println("End.");
+	
     	
     }
     

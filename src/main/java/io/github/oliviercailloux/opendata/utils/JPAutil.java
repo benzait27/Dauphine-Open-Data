@@ -6,12 +6,12 @@ import javax.persistence.Persistence;
 
 public class JPAutil {
 	
-	private static EntityManagerFactory factory;
-	private static EntityManager entityManager;
+	private  EntityManagerFactory factory;
+	private   EntityManager entityManager;
 	
 	//public static EntityManager getEntityManager(String pu)
 	
-	public static EntityManager getEntityManager(String persistUnit) {
+	public EntityManager getEntityManager(String persistUnit) {
 		
 		if (entityManager==null)
 		{

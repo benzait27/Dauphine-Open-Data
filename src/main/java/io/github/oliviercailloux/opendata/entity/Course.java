@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import com.google.common.base.Strings;
 
 
-@XmlRootElement(name="Course", namespace="Course2")
+
 @Entity
 /**
  * Course object to represent a Dauphine course. 
@@ -23,18 +23,20 @@ import com.google.common.base.Strings;
  * @version     %I%, %G%
  * @since       1.0
  */
-public class Course implements Serializable {
+public class Course  implements Serializable {
 	
 	
 	private static final long serialVersionUID = 1L;
 	/**
      *  The id Course
      */
-	private String idCourse = "";
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+	private String idCourse;
 	/**
      *  the description course
      */
-	private String description = "";	
+	private String description = "";
 	/**
      * List of teachers and witch kind of course they will teach
      */
@@ -51,7 +53,6 @@ public class Course implements Serializable {
      * The course's credit
      */
 	private int credits;
-	
 	/**
      * The course specialty
      */
@@ -63,7 +64,7 @@ public class Course implements Serializable {
 	public Course() {
 		
 	}
-	
+
 	/** 
 	  * Course constructor with fields
 	  * 
@@ -74,9 +75,7 @@ public class Course implements Serializable {
 	}
 
 	// put the idCourse on property of the element
-	@XmlAttribute(name="idCourse")
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+
 	
 	/**
 	 * Returns this course's id, or an empty string if unknown.
@@ -86,7 +85,7 @@ public class Course implements Serializable {
 	public String getIdCourse() {
 		return idCourse;
 	}
-	
+
 	/**
 	 * Sets this course's id.
 	 *
@@ -132,7 +131,7 @@ public class Course implements Serializable {
 	public String getCourseName() {
 		return courseName;
 	}
-	
+
 	/**
 	 * Sets this course's name.
 	 *
@@ -195,4 +194,5 @@ public class Course implements Serializable {
 		this.specialty= specialty;
 	}
 
+	
 }
