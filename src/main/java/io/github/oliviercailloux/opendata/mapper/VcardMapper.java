@@ -19,33 +19,28 @@ public class VcardMapper {
 	
 	/**
 	 * Convert a person entity into an VCard entity
-	 * @param Person
-	 * @return VCard
+	 * @param person the person entity to encode, cannot be null
+	 * @return the person encoded as a VCard entity
 	 */
 	public VCard encodePersonToVcard(Person person) {
 		
 		VCard vcard = new VCard();
 		
-		if (person.getFirstName() != null && person.getLastName() != null) {
-			StructuredName n = new StructuredName();
+		StructuredName n = new StructuredName();
+		
+		n.setFamily(person.getLastName());
+		n.setGiven(person.getFirstName());
+		vcard.setStructuredName(n);
+		vcard.setFormattedName(person.getFirstName() + " " + person.getLastName());
 			
-			n.setFamily(person.getLastName());
-			n.setGiven(person.getFirstName());
-			vcard.setStructuredName(n);
-			vcard.setFormattedName(person.getFirstName() + " " + person.getLastName());
-			
+		person.getEmails().forEach((mail) -> {
+			vcard.addEmail(mail);
+		});
+		
+		if (!person.getStructures().isEmpty()) {
+			vcard.setOrganization(person.getStructures().get(0));		
 		}
 		
-		if (person.getEmails() != null) {
-			person.getEmails().forEach((mail) -> {
-				vcard.addEmail(mail);
-			});
-		}
-		
-		if (person.getStructures() != null) {
-			vcard.setOrganization(person.getStructures().get(0));	
-		}
-
 		if (person.getNumber() != null) {
 		vcard.addTelephoneNumber(person.getNumber());
 		}
