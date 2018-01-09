@@ -17,15 +17,15 @@ import com.google.common.base.Strings;
 
 @Entity
 /**
- * Course object to represent a Dauphine course. 
- * @author     Zakaria BENZAIT  
+ * Course object to represent a Dauphine course.
+ * @author     Zakaria BENZAIT
  * @author     Ouafa BOUCENNA
  * @version     %I%, %G%
  * @since       1.0
  */
-public class Course  implements Serializable {
+public class Course implements Serializable {
 	
-	
+
 	private static final long serialVersionUID = 1L;
 	/**
      *  The id Course
@@ -76,7 +76,7 @@ public class Course  implements Serializable {
 
 	// put the idCourse on property of the element
 
-	
+
 	/**
 	 * Returns this course's id, or an empty string if unknown.
 	 *
@@ -193,6 +193,14 @@ public class Course  implements Serializable {
 	public void setSpecialty(TypeSpecialty specialty) {
 		this.specialty= specialty;
 	}
+
+	public Set<PersonAndCourseType> getTeachersAndCourseType() {
+		return teachersAndCourseType;
+	}
+	public void setTeachersAndCourseType(Set<PersonAndCourseType> teachersAndCourseType) {
+        this.teachersAndCourseType = teachersAndCourseType;
+    }
+
 
 	
 }
