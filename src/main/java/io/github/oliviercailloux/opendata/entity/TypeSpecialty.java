@@ -6,7 +6,7 @@ package io.github.oliviercailloux.opendata.entity;
  * @author Ouafa BOUCENNA 
  *
  */
-public enum TypeParcours {
+public enum TypeSpecialty {
 
 	M1_MIAGE_SITN,
 	M2_MIAGE_SITN,

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -18,6 +19,7 @@ import biweekly.ICalendar;
 import ezvcard.Ezvcard;
 import ezvcard.VCard;
 import io.github.oliviercailloux.opendata.entity.Course;
+import io.github.oliviercailloux.opendata.entity.Person;
 import io.github.oliviercailloux.opendata.entity.Planning;
 import io.github.oliviercailloux.opendata.entity.Lecture;
 import io.github.oliviercailloux.opendata.mapper.ICalendarMapper;
@@ -40,10 +42,10 @@ public class AppServlet  extends HttpServlet {
         // TRY TEACHING FORMAT ...
         Course course = new Course();
         course.setDescription("test");
-        Lecture teaching = new Lecture(course, LocalDateTime.now(),"","" ,null);
+        Lecture lecture = new Lecture(course, new Date());
 
-        out.println("TEST : "+teaching.getDateWithFormat("dd MM YYYY"));
-        out.println("TEST null : "+teaching.getDateWithFormat(null));
+        out.println("TEST : "+lecture.getDateWithFormat("dd MM YYYY"));
+        out.println("TEST null : "+lecture.getDateWithFormat(null));
         
         String str =
         		"BEGIN:VCARD\r\n" +
@@ -57,11 +59,9 @@ public class AppServlet  extends HttpServlet {
 		out.println(fullName);
 		
 		// Test ICalendarMapper
-		Planning planning = new Planning();
-		List<Lecture> teachings = new ArrayList();
-		teachings.add(teaching);
-		
-		planning.setTeachings(teachings);
+		Planning planning = new Planning(new Person());
+
+		planning.addLecture(lecture);
 		ICalendarMapper iCalendarMapper = new ICalendarMapper();
 		
 		ICalendar ical = iCalendarMapper.encodePlanningToICalendar(planning);

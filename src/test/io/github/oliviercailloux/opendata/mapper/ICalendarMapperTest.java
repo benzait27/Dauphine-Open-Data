@@ -1,9 +1,10 @@
-package mapper;
+package io.github.oliviercailloux.opendata.mapper;
 
 import static org.junit.Assert.assertEquals;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.junit.Test;
@@ -23,13 +24,9 @@ public class ICalendarMapperTest {
 	public void testEncodePlanningToICalendar() {
         Course course = new Course();
         course.setDescription("test");
-        Lecture teaching = new Lecture(course, LocalDateTime.now(),"","" ,null);
-        
-        Planning planning = new Planning();
-		List<Lecture> teachings = new ArrayList<Lecture>();
-		teachings.add(teaching);
+        Planning planning = new Planning(new Person());
 		
-		planning.setTeachings(teachings);
+		planning.addLecture(new Lecture(course, new Date()));
 		ICalendarMapper iCalendarMapper = new ICalendarMapper();
 		
 		ICalendar ical = iCalendarMapper.encodePlanningToICalendar(planning);

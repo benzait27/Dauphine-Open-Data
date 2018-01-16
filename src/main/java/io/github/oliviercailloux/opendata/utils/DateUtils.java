@@ -3,6 +3,7 @@ package io.github.oliviercailloux.opendata.utils;
 
 import javax.enterprise.context.ApplicationScoped;
 
+import java.text.SimpleDateFormat;
 import java.time.DateTimeException;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -24,33 +25,21 @@ public class DateUtils {
     /**
      *  return date with a specific format (formatOpt)
      *  if formatOpt is null (optional) we return with a specific format : dd/MM/yyyy HH:mm
-     * @param localDate
+     * @param date
      * @param formatOpt
      * @return
      * @throws DateTimeException
      */
-    public static String transformDate(LocalDateTime localDate, Optional<String> formatOpt) throws DateTimeException {
+    public static String transformDate(Date date, Optional<String> formatOpt) throws DateTimeException {
         String format = formatOpt.isPresent() ? formatOpt.get() : "dd/MM/yyyy HH:mm";
-        DateTimeFormatter dateTimeFormatter = null;
+        SimpleDateFormat dateFormat ;
         try{
-            dateTimeFormatter = DateTimeFormatter.ofPattern(format);
+            dateFormat  = new SimpleDateFormat(format);
         }
         catch(IllegalArgumentException illegal){
-            LOGGER.log( Level.ALL, "error in pattern of dateTimeFormatter ", format );
             throw illegal;
         }
 
-        return localDate.format(dateTimeFormatter);
+        return dateFormat.format(date);
     }
-    
-    /**
-     * Convert a LocalDateTime to a Date using local timezone
-     * @param ldt
-     * @return Date
-     */
-    public static Date transformLocalDateToDate(LocalDateTime ldt) {
-    	return Date.from(ldt.atZone(ZoneId.systemDefault()).toInstant());
-    }
-
-
 }
