@@ -51,6 +51,9 @@ public class testQuerey  extends HttpServlet {
     	
 		Course c3=  new Course("Android");
 	     od.ajouter(c3);
+	     
+	     Course c4=  new Course("Agilite");
+	     od.ajouter(c4);
 		 out.println("End.");
 	
     	
