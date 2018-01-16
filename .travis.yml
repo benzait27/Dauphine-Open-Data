@@ -5,4 +5,18 @@ before_install:
    mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 script:
    mvn test -B
- 
+language: java
+git:
+  depth: 1
+dist: trusty
+cache:
+  directories:
+  - "$HOME/.m2"
+deploy:
+  provider: bluemixcloudfoundry
+  skip_cleanup: true
+  username: ziad.souiki@dauphine.eu
+  password: $BLUEMIX_PASSWORD
+  organization: ziad.souiki@dauphine.eu
+  space: dev
+  region: eu-gb
