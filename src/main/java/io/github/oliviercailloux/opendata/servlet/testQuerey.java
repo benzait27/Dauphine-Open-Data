@@ -26,10 +26,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import io.github.oliviercailloux.opendata.dao.CourseDao;
-
-
-
 
 
 @WebServlet("/testQuerey")
@@ -40,20 +36,7 @@ public class testQuerey  extends HttpServlet {
     	@SuppressWarnings("resource")
 		final ServletOutputStream out = new ServletHelper().configureAndGetOutputStream(resp);
 		out.println("Start DAO opretation");
-		out.flush();
-
-	    Course c=  new Course("javaEE");
-	    CourseDao  od = new CourseDao();
-        od.ajouter(c);
-        Course c2 =  od.Consulter(new Course(), "1");
-        out.println(c2.getCourseName());
-        
-    	
-		Course c3=  new Course("Android");
-	     od.ajouter(c3);
-	     
-	     Course c4=  new Course("Agilite");
-	     od.ajouter(c4);
+		 out.flush();
 		 out.println("End.");
 	
     	
