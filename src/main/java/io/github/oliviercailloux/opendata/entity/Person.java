@@ -18,6 +18,7 @@ import java.util.Objects;
 /**
  * Created by Ziad & sofian on 03/12/2017.
  */
+@Entity
 public class Person {
 
 
@@ -27,8 +28,8 @@ public class Person {
      * we need to add pattern @pattern when
      * we have more information about the ID
      */
-    @NotNull
-    @Size(min = 8,max=8)
+    //@NotNull
+   // @Size(min = 8,max=8)
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     String id;
@@ -76,14 +77,22 @@ public class Person {
      * Function type in directory
      */
     @Enumerated(EnumType.STRING)
-    FunctionTypes function;
+    private FunctionTypes role;
 
     /**
      * number
      */
     String number = "";
 
-    /**
+    public FunctionTypes getRole() {
+		return role;
+	}
+
+	public void setRole(FunctionTypes role) {
+		this.role = role;
+	}
+
+	/**
      * fax number
      */
     String fax = "";
@@ -134,14 +143,7 @@ public class Person {
         this.id = Strings.nullToEmpty(id);
     }
 
-    public FunctionTypes getFunction() {
-        return function;
-    }
-
-    public void setFunction(FunctionTypes function) {
-        this.function = function;
-    }
-
+ 
 	/**
 	 * Returns this person's number, or an empty string if unknown.
 	 *

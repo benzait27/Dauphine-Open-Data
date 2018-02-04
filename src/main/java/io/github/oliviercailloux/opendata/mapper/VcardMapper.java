@@ -45,8 +45,8 @@ public class VcardMapper {
 		vcard.addTelephoneNumber(person.getNumber());
 		}
 		
-		if (person.getFunction() != null) {
-			vcard.addExpertise(new Expertise(person.getFunction().toString()));
+		if (person.getRole() != null) {
+			vcard.addExpertise(new Expertise(person.getRole().toString()));
 		}
 		
 		return vcard;
