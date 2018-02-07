@@ -66,13 +66,13 @@ public class testPersonne extends HttpServlet {
         out.println(c4.getFirstName());
         
         
-    	// delete a Person: delete the JavaEE Person ( the fist object)
+    	// delete a Person: delete the "zakaria" Person ( the fist object)
         tx.begin();
         Person PersonDeleted =entityManager.merge(p); 
         entityManager.remove(PersonDeleted);
         tx.commit();
       
-        //Update Person: change the name of the Person Android to Android2
+        //Update Person: change the name of the Person "Mohamed" to "Zohir"
     	p1.setFirstName("Zohir");
     	tx.begin();
 	 	entityManager.merge(p1);
