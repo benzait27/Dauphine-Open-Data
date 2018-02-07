@@ -4,17 +4,29 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  * Created by Ziad  & Sofian on 03/12/2017.
  * object planning by user
  */
+@Entity
 public class Planning {
 
 	/**
 	 * The person whose planning it is (with all the lectures they are enrolled in)
 	 */
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+	private String idPlanning ;
     private Person person;
 
+    public Planning() {
+	}
+    
     /**
      * depending on the future treatment, we can replace
      *  by arrayList or Linkedlist or stream in java 8 ?
@@ -26,6 +38,7 @@ public class Planning {
     	this.person = Objects.requireNonNull(person);
 		this.lectures = new ArrayList<>();
 	}
+    
     
     public Planning(Person person, List<Lecture> lectures) {
     	this.person = Objects.requireNonNull(person);

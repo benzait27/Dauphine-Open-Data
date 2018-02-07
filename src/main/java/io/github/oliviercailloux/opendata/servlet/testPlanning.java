@@ -14,20 +14,21 @@ import javax.servlet.http.HttpServletResponse;
 
 import io.github.oliviercailloux.opendata.entity.FunctionTypes;
 import io.github.oliviercailloux.opendata.entity.Person;
+import io.github.oliviercailloux.opendata.entity.Planning;
 import io.github.oliviercailloux.opendata.utils.JPAutil;
 import io.github.oliviercailloux.opendata.utils.ServletHelper;
 
 /**
  * Servlet implementation class testPerson
  */
-@WebServlet("/testPerson")
-public class testPersonne extends HttpServlet {
+@WebServlet("/testPlanning")
+public class testPlanning extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public testPersonne() {
+    public testPlanning() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -49,41 +50,41 @@ public class testPersonne extends HttpServlet {
 		Person p=   new Person();
 		p.setFirstName("zakaria");
 		p.setRole(FunctionTypes.ENS_VAC);
-	    Person p1=  new Person();
-		p1.setFirstName("Mohamed");
-		p1.setRole(FunctionTypes.ENS_VAC);
-	    Person p2=  new Person();
-		p2.setFirstName("Ali");
-		p2.setRole(FunctionTypes.ENS_VAC);
+		Planning pa = new Planning(p);
+		
+	    
 	 	tx.begin();
 	 	entityManager.persist(p);
-	 	entityManager.persist(p1);
-	 	entityManager.persist(p2);
+	 	entityManager.persist(pa);
 	 	tx.commit();
 		
-	 	//get a Person from the BDD
-	 	Person c4 = entityManager.find(p.getClass(),"1") ;
-        out.println(c4.getFirstName());
+	 	//get a the planning and the Person from the BDD
+	 	Planning pa2 = entityManager.find(pa.getClass(),"2") ;
+	 	out.println(pa2.toString());
+	 	Person p2 = entityManager.find(p.getClass(),pa2.getPerson().getId()) ;
+        out.println(p2.getFirstName());
         
+        //Update Person: change the name of the Person Zakaria to Zohir
+    	p.setFirstName("Zohir");
+    	tx.begin();
+    	pa.setPerson(p);
+	 	entityManager.merge(pa);
+	 	tx.commit();
+	 	Planning pa3 = entityManager.find(pa.getClass(),"2") ;
+        out.println(pa3.getPerson().getFirstName());
         
-    	// delete a Person: delete the "zakaria" Person ( the fist object)
+    	// delete a the planing and the person:  ( the fist object)
         tx.begin();
-        Person PersonDeleted =entityManager.merge(p); 
+        Planning PersonDeleted =entityManager.merge(pa); 
         entityManager.remove(PersonDeleted);
+        entityManager.remove(PersonDeleted.getPerson());
         tx.commit();
       
-        //Update Person: change the name of the Person "Mohamed" to "Zohir"
-    	p1.setFirstName("Zohir");
-    	tx.begin();
-	 	entityManager.merge(p1);
-	 	tx.commit();
 	 	 
-	    // get All the Person
-	     List<Person> Objects =entityManager.createQuery("select c from Person c").getResultList();
-	 	 out.println(Objects.get(0).getFirstName());
-	 	 
-	 	 
-	 	out.println("End All Operation Person.");
+	    // get All the Planning created on the BDD
+	    List<Planning> Objects =entityManager.createQuery("select c from Planning c").getResultList();
+	 	out.println(Objects.get(0).getPerson().getFirstName());
+	 	out.println("End All Operation Planning.");
 	}
 
 	/**
