@@ -62,6 +62,12 @@
 		   <artifactId>biweekly</artifactId>
 		   <version>0.6.1</version>
 		</dependency>
+
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>42.2.1</version>
+		</dependency>
 	</dependencies>
 
 	<build>
