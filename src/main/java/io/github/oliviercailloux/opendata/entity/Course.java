@@ -1,6 +1,7 @@
 package io.github.oliviercailloux.opendata.entity;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
 
@@ -39,7 +40,16 @@ public class Course implements Serializable {
 	/**
      * List of teachers and witch kind of course they will teach
      */
-	private Set<PersonAndCourseType> teachersAndCourseType;
+	private Set<CoursePart> coursePart = new HashSet<CoursePart>() ;
+	
+	public Set<CoursePart> getCoursePart() {
+		return coursePart;
+	}
+
+	public void setCoursePart(Set<CoursePart> coursePart) {
+		this.coursePart = coursePart;
+	}
+
 	/**
      * The name of the course
      */ 
@@ -113,15 +123,6 @@ public class Course implements Serializable {
 	public void setDescription(String description) {
 		this.description = Strings.nullToEmpty(description);
 	}
-
-	public Set<PersonAndCourseType> getAuthor() {
-		return teachersAndCourseType;
-	}
-
-	public void setAuthor(Set<PersonAndCourseType> teachersAndCourseType) {
-		this.teachersAndCourseType =  teachersAndCourseType;
-	}
-
 	/**
 	 * Returns this course's name, or an empty string if unknown.
 	 *
@@ -192,14 +193,5 @@ public class Course implements Serializable {
 	public void setSpecialty(TypeSpecialty specialty) {
 		this.specialty= specialty;
 	}
-
-	public Set<PersonAndCourseType> getTeachersAndCourseType() {
-		return teachersAndCourseType;
-	}
-	public void setTeachersAndCourseType(Set<PersonAndCourseType> teachersAndCourseType) {
-        this.teachersAndCourseType = teachersAndCourseType;
-    }
-
-
 	
 }

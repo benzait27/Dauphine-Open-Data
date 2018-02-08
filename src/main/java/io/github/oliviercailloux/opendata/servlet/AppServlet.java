@@ -1,12 +1,11 @@
 package io.github.oliviercailloux.opendata.servlet;
 
 import io.github.oliviercailloux.opendata.entity.Course;
-import io.github.oliviercailloux.opendata.entity.CourseType;
+import io.github.oliviercailloux.opendata.entity.CoursePart;
 import io.github.oliviercailloux.opendata.entity.Lecture;
 import io.github.oliviercailloux.opendata.entity.Person;
-import io.github.oliviercailloux.opendata.entity.PersonAndCourseType;
 import io.github.oliviercailloux.opendata.entity.Planning;
-import io.github.oliviercailloux.opendata.entity.TypeCourse;
+import io.github.oliviercailloux.opendata.entity.CourseType;
 import io.github.oliviercailloux.opendata.mapper.ICalendarMapper;
 
 import java.io.IOException;
@@ -76,35 +75,35 @@ public class AppServlet  extends HttpServlet {
 		Gson gson = new Gson();
 		
 		String courseAsJson = gson.toJson(new Course());
-		String courseTypeAsJson = gson.toJson(new CourseType(TypeCourse.CM, 1));
+		String courseTypeAsJson = gson.toJson(new CoursePart(CourseType.CM, 1));
 		String lectureAsJson = gson.toJson(new Lecture());
 		String personAsJson = gson.toJson(new Person());
 		
-		HashSet<CourseType> courseTypeSet = new HashSet<CourseType>();
-		courseTypeSet.add(new CourseType(TypeCourse.CM, 1));
+		HashSet<CoursePart> courseTypeSet = new HashSet<CoursePart>();
+		courseTypeSet.add(new CoursePart(CourseType.CM, 1));
 		
-		String personAndCourseTypeAsJson = gson.toJson(new PersonAndCourseType(new Person(), courseTypeSet));
+		//String personAndCourseTypeAsJson = gson.toJson(new PersonAndCourseType(new Person(), courseTypeSet));
 		String planningAsJson = gson.toJson(new Planning(new Person()));
 		
 		out.println(courseAsJson);
 		out.println(courseTypeAsJson);
 		out.println(lectureAsJson);
 		out.println(personAsJson);
-		out.println(personAndCourseTypeAsJson);
+		//out.println(personAndCourseTypeAsJson);
 		out.println(planningAsJson);
 		
 		Course courseFromJson = gson.fromJson(courseAsJson, Course.class);
-		CourseType courseTypeFromJson = gson.fromJson(courseAsJson, CourseType.class);
+		CoursePart courseTypeFromJson = gson.fromJson(courseAsJson, CoursePart.class);
 		Lecture lectureFromJson = gson.fromJson(courseAsJson, Lecture.class);
 		Person personFromJson = gson.fromJson(personAsJson, Person.class);
-		PersonAndCourseType personAndCourseTypeFromJson = gson.fromJson(personAndCourseTypeAsJson, PersonAndCourseType.class);
+		//PersonAndCourseType personAndCourseTypeFromJson = gson.fromJson(personAndCourseTypeAsJson, PersonAndCourseType.class);
 		Planning planningFromJson = gson.fromJson(planningAsJson, Planning.class);
 		
 		out.println(courseFromJson.toString());
 		out.println(courseTypeFromJson.toString());
 		out.println(lectureFromJson.toString());
 		out.println(personFromJson.toString());
-		out.println(personAndCourseTypeFromJson.toString());
+		//out.println(personAndCourseTypeFromJson.toString());
 		out.println(planningFromJson.toString());
 		
     }
