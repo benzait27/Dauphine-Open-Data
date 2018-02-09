@@ -1,11 +1,97 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
     <title>Dauphine Open DATA</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
   </head>
+
   <body>
-  <header>
-    <h1>Dauphine Open DATA</h1>
-    <h2>Bienvenue sur le projet OPEN DATA ! Test update </h2>
-  </header>
+
+    <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          
+      </div>
+    </nav>
+
+    <div class="container">
+
+      <div class="starter-template">
+	    <h2>Dauphine Open Data</h2>
+	        
+	    <h3>Parcourir les cours</h3>
+	    <select id="courseTable" onchange="changeCourse()"></select>
+	    <table id="courseTable">
+	    	<tr>
+	    	<td>Nom</td>
+	    	<td id="courseNameCell"></td>
+	    	</tr> 
+	    </table>
+	    <h3>Parcourir les personnes</h3>
+	    <select id="personList"></select>
+	    <table id="personTable"> 
+	    </table>
+	   </div>
+	
+	</div><!-- /.container -->
+
+    <script>
+		function httpGet(theUrl)
+		{
+		    var xmlHttp = new XMLHttpRequest();
+		    xmlHttp.open( "GET", theUrl, false );
+		    xmlHttp.send( null );
+		    return xmlHttp.responseText;
+		}
+		
+		function changeCourse() {
+			var courseList = document.getElementById('courseList');
+			
+			var id = courseList.options[courseList.selectedIndex].value;
+			console.log(id);
+			
+			document.getElementById('courseNameCell').innerHtml = id;
+		}
+		
+		var courses = httpGet(document.URL + 'course'); 
+		
+		courses = JSON.parse(courses);
+		
+		var courseList = document.getElementById('courseList');
+		
+		for(var i = 0; i < courses.length; i++) {
+		    var opt = document.createElement('option');
+		    opt.innerHTML = courses[i]['courseName'];
+		    opt.value = courses[i]['idCourse'];
+		    courseList.appendChild(opt);
+		}
+
+		var persons = httpGet(document.URL + 'person'); 
+		console.log(persons);
+		
+		persons = JSON.parse(persons);
+	
+		var personList = document.getElementById('personList');
+		for(var i = 0; i < persons.length; i++) {
+		    var opt = document.createElement('option');
+		    opt.innerHTML = persons[i].firstName + " " + persons[i].lastName;
+		    opt.value = persons[i].id;
+		    personList.appendChild(opt);
+		}
+		
+	</script>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>    
   </body>
 </html>
