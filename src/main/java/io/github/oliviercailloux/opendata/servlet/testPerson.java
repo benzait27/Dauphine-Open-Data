@@ -21,13 +21,13 @@ import io.github.oliviercailloux.opendata.utils.ServletHelper;
  * Servlet implementation class testPerson
  */
 @WebServlet("/testPerson")
-public class testPersonne extends HttpServlet {
+public class testPerson extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public testPersonne() {
+    public testPerson() {
         super();
         // TODO Auto-generated constructor stub
     }
