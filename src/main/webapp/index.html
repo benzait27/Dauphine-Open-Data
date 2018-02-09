@@ -135,7 +135,7 @@
 					courseToDisplay = course;
 				}
 			}
-
+			
 			document.getElementById('courseNameCell').innerText = courseToDisplay['courseName'];
 			document.getElementById('idCourseCell').innerText = courseToDisplay['idCourse'];
 			document.getElementById('coursePartCell').innerText = JSON.stringify(courseToDisplay['coursePart']);
@@ -178,6 +178,7 @@
 
 		var courses = httpGet(document.URL + 'course'); 
 		courses = JSON.parse(courses);
+// 		console.log('courses : ' + courses);
 
 		var courseList = document.getElementById('courseList');
 
@@ -197,6 +198,7 @@
 		var persons = httpGet(document.URL + 'person');
 		persons = JSON.parse(persons);
 
+// 		console.log('persons : ' + persons);
 		var personList = document.getElementById('personList');
 		for (var i = 0; i < persons.length; i++) {
 			var opt = document.createElement('option');
