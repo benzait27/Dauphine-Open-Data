@@ -41,14 +41,23 @@ public class DeletAll extends HttpServlet {
 		 EntityManager entityManager=j.getEntityManager("Dauphine-Open-Data");
 
 		 //delete all the course on the BDD
-	     List<Person> Persons =entityManager.createQuery("select c from Person c").getResultList();
+	     List<Course> Courses =entityManager.createQuery("select c from Course c").getResultList();
+	     List<Person> Persons =entityManager.createQuery("select p from Person p").getResultList();
 		 EntityTransaction tx = entityManager.getTransaction();
 	
+		 tx.begin();
+		 for (Course course : Courses) { 
+			 Course  CourseDeleted =entityManager.merge(course); 
+		     entityManager.remove(CourseDeleted);   
+		}
+		 tx.commit();
 		 tx.begin();
 		 for (Person person : Persons) { 
 			 Person  PersonDeleted =entityManager.merge(person); 
 		     entityManager.remove(PersonDeleted);   
 		}
+		 
+		 
 		 tx.commit();
 		 
 	        

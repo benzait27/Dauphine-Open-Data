@@ -29,7 +29,16 @@ cf push
 
 ## Lancement
 
-comment lancer le projet 
+Pour lancer le projet suivre les etapes suivantes
+
+1/ lancer http://dauphine-open-data.eu-gb.mybluemix.net/BDDfedd
+cette etape peremets d'ilimenter la BDD par l'ensemble de cours et ensignants
+
+2/ lancer http://dauphine-open-data.eu-gb.mybluemix.net
+pour lister les diffrentes cours et personnes créer precedement
+
+3/ pour suprimer la BDD ou relancer le tester vous dervrer lancer la servlet
+http://dauphine-open-data.eu-gb.mybluemix.net/DeletAll
 
 ### Lancer les tests
 

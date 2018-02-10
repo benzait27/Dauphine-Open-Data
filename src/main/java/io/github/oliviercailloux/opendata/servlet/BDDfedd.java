@@ -67,7 +67,7 @@ public class BDDfedd extends HttpServlet {
 	    Person p1=  new Person();
 		    p1.setFirstName("Mohamed");
 			List<String> emails2 =new ArrayList<String>();
-			emails.add("benzait.mohamed@deauphine.eu");
+			emails2.add("benzait.mohamed@deauphine.eu");
 			p1.setEmails(emails2);
 			p1.setFax("0788288267");
 			p1.setLastName("BENZAIT");
@@ -76,7 +76,7 @@ public class BDDfedd extends HttpServlet {
 	    Person p2=  new Person();
 		    p2.setFirstName("Ali");
 			List<String> emails3 =new ArrayList<String>();
-			emails.add("Ali.kadour@deauphine.eu");
+			emails3.add("Ali.kadour@deauphine.eu");
 			p2.setEmails(emails3);
 			p2.setFax("0758288278");
 			p2.setLastName("Kadour");
