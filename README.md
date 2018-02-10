@@ -32,12 +32,12 @@ cf push
 Pour lancer le projet suivait les étapes suivantes 
 
 1/ lancer http:/dauphine-open-data.eu-gb.mybluemixnet/BDDfedd 
-cette étape permet d'alimenter la BDD par l'ensemble de cours et enseignants 
+cette étape permets d'alimenter la BDD par l'ensemble de cours et enseignants 
 
 2/ lancer http://dauphine-open-data.eu-gb.mybluemix.net 
 pour lister les différentes cours et personnes créer précédemment 
 
-3/ pour supprimer la BDD ou relancez-le tester vos dervrer lancer la servilité http://Dauphine open data.Eu-gb Mybluemix Net/DeletAll
+3/ pour supprimer la BDD ou relancez le teste vous dervrez lancer la servlet http://dauphine-open-data.eu-gb.mybluemix.net/DeletAll
 
 
 ### Lancer les tests
