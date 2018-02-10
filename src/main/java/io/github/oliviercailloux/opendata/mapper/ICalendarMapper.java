@@ -5,12 +5,11 @@ import java.util.Date;
 
 import biweekly.ICalendar;
 import biweekly.component.VEvent; 
-import ezvcard.property.Expertise;
-import ezvcard.property.StructuredName;
+
 import io.github.oliviercailloux.opendata.entity.Lecture;
-import io.github.oliviercailloux.opendata.entity.Person;
 import io.github.oliviercailloux.opendata.entity.Planning;
-import io.github.oliviercailloux.opendata.utils.DateUtils;
+
+import javax.enterprise.context.ApplicationScoped;
 
 /**
  * A mapper class used to convert Planning entities to ICalendar entities  
@@ -18,6 +17,7 @@ import io.github.oliviercailloux.opendata.utils.DateUtils;
  * @author Ouafa BOUCENNA 
  *
  */
+@ApplicationScoped
 public class ICalendarMapper {
 
 	public ICalendarMapper() {

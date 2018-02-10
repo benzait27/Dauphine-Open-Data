@@ -6,12 +6,15 @@ import ezvcard.property.Expertise;
 import ezvcard.property.StructuredName;
 import io.github.oliviercailloux.opendata.entity.Person;
 
+import javax.enterprise.context.ApplicationScoped;
+
 /**
  * A mapper class used to convert Person entities to VCard entities  
  * @author GERVRAUD Thomas
  * @author NIANG Sebastien
  *
  */
+@ApplicationScoped
 public class VcardMapper {
 
 	public VcardMapper() {

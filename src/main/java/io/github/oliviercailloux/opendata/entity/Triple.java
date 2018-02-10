@@ -18,7 +18,7 @@ public class Triple {
      * id of a triple
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.TABLE)
     String id;
 
 	/**

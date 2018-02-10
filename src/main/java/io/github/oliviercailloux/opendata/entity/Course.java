@@ -37,7 +37,8 @@ public class Course implements Serializable {
      *  The id Course
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+	// type === table for unique primary key (use in triple)
+    @GeneratedValue(strategy = GenerationType.TABLE)
 	private String idCourse;
 	/**
      *  the description course

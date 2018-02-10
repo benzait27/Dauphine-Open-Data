@@ -28,10 +28,9 @@ public class Person {
      * we need to add pattern @pattern when
      * we have more information about the ID
      */
-    //@NotNull
-   // @Size(min = 8,max=8)
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+	// type === table for unique primary key (use in triple)
+    @GeneratedValue(strategy = GenerationType.TABLE)
     String id;
 
 	/**

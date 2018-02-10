@@ -2,6 +2,7 @@ package io.github.oliviercailloux.opendata.servlet;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -59,8 +60,8 @@ public class testPlanning extends HttpServlet {
 	 	tx.commit();
 		
 	 	//get a the planning and the Person from the BDD
-	 	Planning pa2 = entityManager.find(pa.getClass(),"2") ;
-	 	out.println(pa2.toString());
+	 	Planning pa2 = entityManager.find(pa.getClass(),pa.getIdPlanning()) ;
+	 	out.println(Objects.requireNonNull(pa2.toString()));
 	 	Person p2 = entityManager.find(p.getClass(),pa2.getPerson().getId()) ;
         out.println(p2.getFirstName());
         
@@ -70,7 +71,7 @@ public class testPlanning extends HttpServlet {
     	pa.setPerson(p);
 	 	entityManager.merge(pa);
 	 	tx.commit();
-	 	Planning pa3 = entityManager.find(pa.getClass(),"2") ;
+	 	Planning pa3 = entityManager.find(pa.getClass(),pa.getIdPlanning()) ;
         out.println(pa3.getPerson().getFirstName());
         
     	// delete a the planing and the person:  ( the fist object)

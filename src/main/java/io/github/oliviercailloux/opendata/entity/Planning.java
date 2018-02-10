@@ -20,7 +20,8 @@ public class Planning {
 	 * The person whose planning it is (with all the lectures they are enrolled in)
 	 */
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+	// type === table for unique primary key (use in triple)
+    @GeneratedValue(strategy = GenerationType.TABLE)
 	private String idPlanning ;
     private Person person;
 
@@ -93,4 +94,16 @@ public class Planning {
     public void addLecture (Lecture lecture) {
         this.lectures.add(Objects.requireNonNull(lecture));
     }
+
+	public String getIdPlanning() {
+		return idPlanning;
+	}
+
+	public void setIdPlanning(String idPlanning) {
+		this.idPlanning = idPlanning;
+	}
+
+	public void setLectures(List<Lecture> lectures) {
+		this.lectures = lectures;
+	}
 }
