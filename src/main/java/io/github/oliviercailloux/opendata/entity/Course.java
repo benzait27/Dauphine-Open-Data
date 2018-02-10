@@ -1,14 +1,20 @@
 package io.github.oliviercailloux.opendata.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 import com.google.common.base.Strings;
@@ -40,13 +46,14 @@ public class Course implements Serializable {
 	/**
      * List of teachers and witch kind of course they will teach
      */
-	private Set<CoursePart> coursePart = new HashSet<CoursePart>() ;
+	@ManyToMany(cascade = CascadeType.ALL)
+	private List<CoursePart> coursePart = new ArrayList<CoursePart>() ;
 	
-	public Set<CoursePart> getCoursePart() {
+	public List<CoursePart> getCoursePart() {
 		return coursePart;
 	}
 
-	public void setCoursePart(Set<CoursePart> coursePart) {
+	public void setCoursePart(List<CoursePart> coursePart) {
 		this.coursePart = coursePart;
 	}
 

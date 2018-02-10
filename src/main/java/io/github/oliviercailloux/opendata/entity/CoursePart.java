@@ -1,5 +1,13 @@
 package io.github.oliviercailloux.opendata.entity;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
+
 /**
  * CourseType is an  object to represent type of course {( TD,30H), (CM,15H), ...}. 
  * @author     Zakaria BENZAIT  
@@ -7,9 +15,23 @@ package io.github.oliviercailloux.opendata.entity;
  * @version     %I%, %G%
  * @since       1.0
  */
-
+@Entity
 public class CoursePart {
 	
+	
+	/**
+     *  The id CoursePart
+     */
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+	private String idCoursePart;
+	public String getIdCoursePart() {
+		return idCoursePart;
+	}
+
+	public void setIdCoursePart(String idCoursePart) {
+		this.idCoursePart = idCoursePart;
+	}
 	/**
 	 * the type of the course (TD, CM )
 	 */
@@ -21,6 +43,7 @@ public class CoursePart {
 	/**
 	 * The teacher
 	 */
+	@OneToOne(cascade = CascadeType.PERSIST)
 	Person teacher ;
 	
 	
@@ -41,6 +64,12 @@ public class CoursePart {
 		super();
 		this.type = type;
 		this.volume = volume;
+	}
+	/**
+	 * Constructor without fields
+	 */
+	public CoursePart() {
+		super();
 	}
 	
 	public CourseType getType() {

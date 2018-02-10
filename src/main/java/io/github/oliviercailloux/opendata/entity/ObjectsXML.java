@@ -15,7 +15,7 @@ public class ObjectsXML {
 		// TODO Auto-generated constructor stub
 	}
 
-	public void encodingCourse(Course c, String fileName) {
+	public void encodingCourse(Course c, String fileName) throws NullPointerException , IllegalArgumentException {
 		try {
 			//creation the JAXB contexte under the Course classe
 		    JAXBContext context = JAXBContext.newInstance(Course.class) ;
@@ -32,10 +32,17 @@ public class ObjectsXML {
 		    //write the XML file on the fileName
 		    marshaller.marshal(c,  new File(fileName)) ;
 			} catch (JAXBException ex) {
-			ex.printStackTrace();}
+			ex.printStackTrace();
+			}
+		   catch (NullPointerException ex) {
+			ex.printStackTrace();
+			}
+		   catch (IllegalArgumentException ex) {
+			ex.printStackTrace();
+			}
 	}
 	
-    public Course decodingCourse(String fileName) {
+    public Course decodingCourse() {
 		Course c = null;
     	
     	return c;

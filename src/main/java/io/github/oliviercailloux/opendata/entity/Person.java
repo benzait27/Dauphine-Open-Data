@@ -77,18 +77,18 @@ public class Person {
      * Function type in directory
      */
     @Enumerated(EnumType.STRING)
-    private FunctionTypes role;
+    private FunctionType role;
 
     /**
      * number
      */
     String number = "";
 
-    public FunctionTypes getRole() {
+    public FunctionType getRole() {
 		return role;
 	}
 
-	public void setRole(FunctionTypes role) {
+	public void setRole(FunctionType role) {
 		this.role = role;
 	}
 

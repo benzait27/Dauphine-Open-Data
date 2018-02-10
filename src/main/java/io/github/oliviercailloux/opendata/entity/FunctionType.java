@@ -15,7 +15,7 @@ import javax.persistence.IdClass;
  */
 //@Entity
 
-public enum FunctionTypes {
+public enum FunctionType {
     MAITRE_DE_CONFERENCES,
     ENS_VAC,
     PROFESSEUR_DES_UNIVERSITES

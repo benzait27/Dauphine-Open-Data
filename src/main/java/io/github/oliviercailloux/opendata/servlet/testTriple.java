@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import io.github.oliviercailloux.opendata.entity.FunctionTypes;
+import io.github.oliviercailloux.opendata.entity.FunctionType;
 import io.github.oliviercailloux.opendata.entity.Person;
 import io.github.oliviercailloux.opendata.entity.Triple;
 import io.github.oliviercailloux.opendata.utils.JPAutil;

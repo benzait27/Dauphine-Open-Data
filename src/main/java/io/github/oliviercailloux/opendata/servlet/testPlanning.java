@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import io.github.oliviercailloux.opendata.entity.FunctionTypes;
+import io.github.oliviercailloux.opendata.entity.FunctionType;
 import io.github.oliviercailloux.opendata.entity.Person;
 import io.github.oliviercailloux.opendata.entity.Planning;
 import io.github.oliviercailloux.opendata.utils.JPAutil;
@@ -49,7 +49,7 @@ public class testPlanning extends HttpServlet {
 		EntityTransaction tx = entityManager.getTransaction();
 		Person p=   new Person();
 		p.setFirstName("zakaria");
-		p.setRole(FunctionTypes.ENS_VAC);
+		p.setRole(FunctionType.ENS_VAC);
 		Planning pa = new Planning(p);
 		
 	    

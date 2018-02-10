@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import io.github.oliviercailloux.opendata.entity.FunctionTypes;
+import io.github.oliviercailloux.opendata.entity.FunctionType;
 import io.github.oliviercailloux.opendata.entity.Person;
 import io.github.oliviercailloux.opendata.utils.JPAutil;
 import io.github.oliviercailloux.opendata.utils.ServletHelper;
@@ -48,13 +48,13 @@ public class testPerson extends HttpServlet {
 		EntityTransaction tx = entityManager.getTransaction();
 		Person p=   new Person();
 		p.setFirstName("zakaria");
-		p.setRole(FunctionTypes.ENS_VAC);
+		p.setRole(FunctionType.ENS_VAC);
 	    Person p1=  new Person();
 		p1.setFirstName("Mohamed");
-		p1.setRole(FunctionTypes.ENS_VAC);
+		p1.setRole(FunctionType.ENS_VAC);
 	    Person p2=  new Person();
 		p2.setFirstName("Ali");
-		p2.setRole(FunctionTypes.ENS_VAC);
+		p2.setRole(FunctionType.ENS_VAC);
 	 	tx.begin();
 	 	entityManager.persist(p);
 	 	entityManager.persist(p1);
