@@ -50,10 +50,15 @@ commande pour test
 ## Contributeurs
 
 [zsouiki] Ziad SOUIKI M2 MIAGE
+Ouafa Boucenna        M2 MIAGE
+Soufian Elidrissi     M2 MIAGE
+Sebastien  Niang      M2 MIAGE
+Thomas Gervraud       M2 MIAGE
+Zakaria Benzait       M2 MIAGE
 
 ## Version
 
-Actuellement en version 0.0.1 
+Actuellement en version 0.1.0 
 
 
 ## Sources
