@@ -60,7 +60,7 @@ public class testPerson extends HttpServlet {
 	 	entityManager.persist(p1);
 	 	entityManager.persist(p2);
 	 	tx.commit();
-		
+		/*
 	 	//get a Person from the BDD
 	 	Person c4 = entityManager.find(p.getClass(),"1") ;
         out.println(c4.getFirstName());
@@ -82,7 +82,7 @@ public class testPerson extends HttpServlet {
 	     List<Person> Objects =entityManager.createQuery("select c from Person c").getResultList();
 	 	 out.println(Objects.get(0).getFirstName());
 	 	 
-	 	 
+	 	 */
 	 	out.println("End All Operation Person.");
 	}
 

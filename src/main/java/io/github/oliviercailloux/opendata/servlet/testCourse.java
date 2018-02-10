@@ -53,7 +53,7 @@ public class testCourse extends HttpServlet {
 	 	entityManager.persist(c1);
 	 	entityManager.persist(c2);
 	 	tx.commit();
-	 	
+	/* 	
 	 	//get a course from the BDD
 	 	Course c4 = entityManager.find(c.getClass(),"1") ;
         out.println(c4.getCourseName());
@@ -74,7 +74,7 @@ public class testCourse extends HttpServlet {
 	    // get All the Course
 	     List<Course> Objects =entityManager.createQuery("select c from Course c").getResultList();
 	 	 out.println(Objects.get(0).getCourseName());
-	 	 
+	 	 */
 	 	out.println("End All Operation.");
 	}
 
