@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<meta charset="utf-8">
+  <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="">
 	<meta name="author" content="">
@@ -10,105 +10,134 @@
 	<title>Dauphine Open DATA</title>
 
 	<!-- Bootstrap core CSS -->
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 </head>
 
 <body>
 
-	<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top">
-		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
-		 aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
+	 <div class="page-header">
+      <div >
+        <ul  class="nav nav-pills nav-justified" class="row" align="center">
+          <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+        <h1>Dauphine Open Data</h1>
+        </ul>
+      </div>
+    </div>
 
-		<div class="collapse navbar-collapse" id="navbarsExampleDefault">
-			<ul class="navbar-nav mr-auto">
-
-		</div>
-	</nav>
+	
 
 	<div class="container">
 
-		<div class="starter-template">
-			<h2>Dauphine Open Data</h2>
-
-			<h3>Parcourir les cours</h3>
-			<select id="courseList" onchange="changeCourse()">
-				<option disabled selected value>Sélectionnez un cours</option>
-			</select>
-			<table id="courseTable" class="table">
+		<div class="container-fluid">
+		  <div class="col-lg-4" >
+         <div class="input-group">
+         </div><!-- /input-group -->
+       </div><!-- /.col-lg-6 -->
+    <div class="row" align="left">
+			
+       <div class="panel panel-info">
+  
+         <div class="panel-heading"> <h1>Parcourir les cours</h1>
+ 
+			    <div class="row" align="center">
+				
+					<select id="courseList" onchange="changeCourse()" class="btn btn-default">
+					<option disabled selected value>Sélectionnez un cours</option>
+					</select>
+			    </div>
+			
+         </div> 
+		 
+			
+			 
+			
+			<div class="table-responsive">
+			<table id="courseTable" class="table table-striped">
 				<tr>
-					<td>courseName</td>
+					<td>Course Name</td>
 					<td id="courseNameCell"></td>
 				</tr>
 				<tr>
-					<td>idCourse</td>
+					<td>Id Course</td>
 					<td id="idCourseCell"></td>
 				</tr>
 				<tr>
-					<td>coursePart</td>
+					<td>Course Part</td>
 					<td id="coursePartCell"></td>
 				</tr>
 				<tr>
-					<td>locale</td>
+					<td>Locale</td>
 					<td id="localeCell"></td>
 				</tr>
 				<tr>
-					<td>credits</td>
+					<td>Credits</td>
 					<td id="creditsCell"></td>
 				</tr>
 				<tr>
-					<td>description</td>
+					<td>Description</td>
 					<td id="descriptionCell"></td>
 				</tr>
 				<tr>
-					<td>specialty</td>
+					<td>Specialty</td>
 					<td id="specialtyCell"></td>
 				</tr>
 			</table>
-			<h3>Parcourir les personnes</h3>
-			<select id="personList" onchange="changePerson()">
-				<option disabled selected value>Sélectionnez une personne</option>
-			</select>
-			<table id="personTable" class="table">
+			</div>
+	 </div>
+	  <div class="panel panel-info">
+			<div class="panel-heading"> <h1>Parcourir les personnes</h1>
+ 
+			    <div class="row" align="center">
+				
+					<select id="personList" onchange="changePerson()" class="btn btn-default">
+					<option disabled selected value>Sélectionnez un personne</option>
+					</select>
+			    </div>
+			</div> 
+           
+			 
+						
+			<div class="table-responsive">
+			<table id="personTable"  class="table table-striped">
+
 				<tr>
-					<td>id</td>
+					<td>Id</td>
 					<td id="idCell"></td>
 				</tr>
 				<tr>
-					<td>firstName</td>
+					<td>First name</td>
 					<td id="firstNameCell"></td>
 				</tr>
 				<tr>
-					<td>lastName</td>
+					<td>Last name</td>
 					<td id="lastNameCell"></td>
 				</tr>
 				<tr>
-					<td>role</td>
+					<td>Role</td>
 					<td id="roleCell"></td>
 				</tr>
 				<tr>
-					<td>number</td>
+					<td>Number</td>
 					<td id="numberCell"></td>
 				</tr>
 				<tr>
-					<td>fax</td>
+					<td>Fax</td>
 					<td id="faxCell"></td>
 				</tr>
 				<tr>
-					<td>office</td>
+					<td>Office</td>
 					<td id="officeCell"></td>
 				</tr>
 				<tr>
-					<td>emails</td>
+					<td>Emails</td>
 					<td id="emailsCell"></td>
 				</tr>
 				<tr>
-					<td>structures</td>
+					<td>Structures</td>
 					<td id="structuresCell"></td>
 				</tr>
 			</table>
-		</div>
 
 	</div>
 	<!-- /.container -->
@@ -212,6 +241,8 @@
 	 crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
 	 crossorigin="anonymous"></script>
+	 <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </body>
 
 </html>
