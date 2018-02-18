@@ -121,7 +121,6 @@ public class BDDfedd extends HttpServlet {
 	 	tx.commit();
 	 	entityManager.close();
 	 	out.println("End all operation");
-
 		out.flush();
 	}
 	
