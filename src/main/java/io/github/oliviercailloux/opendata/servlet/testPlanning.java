@@ -37,6 +37,7 @@ public class testPlanning extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		@SuppressWarnings("resource")
 		final ServletOutputStream out = new ServletHelper().configureAndGetOutputStream(response);
@@ -47,25 +48,28 @@ public class testPlanning extends HttpServlet {
 		EntityManager entityManager=j.getEntityManager("Dauphine-Open-Data");
 
 		// add all the Persons int the BDD
-		EntityTransaction tx = entityManager.getTransaction();
+		
 		Person p=   new Person();
 		p.setFirstName("zakaria");
 		p.setRole(FunctionType.ENS_VAC);
 		Planning pa = new Planning(p);
 		
-	    
+		EntityTransaction tx = entityManager.getTransaction();
 	 	tx.begin();
 	 	entityManager.persist(p);
 	 	entityManager.persist(pa);
 	 	tx.commit();
-		
+	 	
 	 	//get a the planning and the Person from the BDD
 	 	Planning pa2 = entityManager.find(pa.getClass(),pa.getIdPlanning()) ;
 	 	out.println(Objects.requireNonNull(pa2.toString()));
 	 	Person p2 = entityManager.find(p.getClass(),pa2.getPerson().getId()) ;
         out.println(p2.getFirstName());
+
+        
         
         //Update Person: change the name of the Person Zakaria to Zohir
+        entityManager= j.getEntityManager("Dauphine-Open-Data");
     	p.setFirstName("Zohir");
     	tx.begin();
     	pa.setPerson(p);
@@ -73,7 +77,6 @@ public class testPlanning extends HttpServlet {
 	 	tx.commit();
 	 	Planning pa3 = entityManager.find(pa.getClass(),pa.getIdPlanning()) ;
         out.println(pa3.getPerson().getFirstName());
-        
     	// delete a the planing and the person:  ( the fist object)
         tx.begin();
         Planning PersonDeleted =entityManager.merge(pa); 
@@ -84,6 +87,7 @@ public class testPlanning extends HttpServlet {
 	 	 
 	    // get All the Planning created on the BDD
 	    List<Planning> Objects =entityManager.createQuery("select c from Planning c").getResultList();
+	    entityManager.close();
 	 	out.println(Objects.get(0).getPerson().getFirstName());
 	 	out.println("End All Operation Planning.");
 	}
@@ -91,6 +95,7 @@ public class testPlanning extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);

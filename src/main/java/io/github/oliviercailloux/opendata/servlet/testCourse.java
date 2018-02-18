@@ -34,6 +34,7 @@ public class testCourse extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		@SuppressWarnings("resource")
 		final ServletOutputStream out = new ServletHelper().configureAndGetOutputStream(response);
@@ -53,6 +54,7 @@ public class testCourse extends HttpServlet {
 	 	entityManager.persist(c1);
 	 	entityManager.persist(c2);
 	 	tx.commit();
+	 	entityManager.close();
 	/* 	
 	 	//get a course from the BDD
 	 	Course c4 = entityManager.find(c.getClass(),"1") ;
@@ -81,6 +83,7 @@ public class testCourse extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);

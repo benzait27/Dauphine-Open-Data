@@ -75,12 +75,12 @@ public class AppServlet  extends HttpServlet {
 		Gson gson = new Gson();
 		
 		String courseAsJson = gson.toJson(new Course());
-		String courseTypeAsJson = gson.toJson(new CoursePart(CourseType.CM, 1));
+		String courseTypeAsJson = gson.toJson(new CoursePart(CourseType.CM, 1,null));
 		String lectureAsJson = gson.toJson(new Lecture());
 		String personAsJson = gson.toJson(new Person());
 		
-		HashSet<CoursePart> courseTypeSet = new HashSet<CoursePart>();
-		courseTypeSet.add(new CoursePart(CourseType.CM, 1));
+		HashSet<CoursePart> courseTypeSet = new HashSet<>();
+		courseTypeSet.add(new CoursePart(CourseType.CM, 1,null));
 		
 		//String personAndCourseTypeAsJson = gson.toJson(new PersonAndCourseType(new Person(), courseTypeSet));
 		String planningAsJson = gson.toJson(new Planning(new Person()));

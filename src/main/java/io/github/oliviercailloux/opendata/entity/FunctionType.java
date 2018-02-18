@@ -13,8 +13,6 @@ import javax.persistence.IdClass;
  *
  * (non-exhaustive list on 03/12/2017
  */
-//@Entity
-
 public enum FunctionType {
     MAITRE_DE_CONFERENCES,
     ENS_VAC,

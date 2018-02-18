@@ -8,15 +8,19 @@ import java.util.Locale;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
+
+import com.google.common.base.Optional;
 import com.google.common.base.Strings;
 
 
@@ -34,45 +38,61 @@ public class Course implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	/**
-     *  The id Course
+     * Not <code>null</code>,  The id Course
      */
     @Id
 	// type === table for unique primary key (use in triple)
     @GeneratedValue(strategy = GenerationType.TABLE)
 	private String idCourse;
 	/**
-     *  the description course
+     *Not <code>null</code>,  the description course
      */
 	private String description = "";
 	/**
-     * List of teachers and witch kind of course they will teach
+     *Not <code>null</code>, List of teachers and witch kind of course they will teach
      */
 	@ManyToMany(cascade = CascadeType.ALL)
-	private List<CoursePart> coursePart = new ArrayList<CoursePart>() ;
+	@JoinColumn(nullable = false)
+	private List<CoursePart> coursePart = new ArrayList<>() ;
 	
+	/**
+	 * Returns the list of course Part ( (TD, 20h, Teacher),()...),
+	 *
+	 * @return not <code>null</code>.
+	 */
 	public List<CoursePart> getCoursePart() {
 		return coursePart;
 	}
 
+	/**
+	 * Sets the list of course Part.
+	 *
+	 * @param coursePart
+	 *            Not <code>null</code>, will be converted to an empty string.
+	 */
 	public void setCoursePart(List<CoursePart> coursePart) {
 		this.coursePart = coursePart;
 	}
 
 	/**
-     * The name of the course
+     * Not <code>null</code>, The name of the course
      */ 
+	@Column(nullable = false)
 	private String courseName = "";
 	/**
-     * the language of the course in witch it written 
+     *May be <code>null</code>, the language of the course in witch it written 
      */
+	@Column(nullable = true)
 	private Locale locale ;
 	/**
-     * The course's credit
+     *Not <code>null</code>, The course's credit
      */
+	@Column(nullable = false)
 	private int credits;
 	/**
-     * The course specialty
+     *Not <code>null</code>, The course specialty
      */
+	@Column(nullable = false)
 	private TypeSpecialty specialty;
 	
 	 /** 
@@ -85,14 +105,11 @@ public class Course implements Serializable {
 	/** 
 	  * Course constructor with fields
 	  * 
-	  * @param courseName  the name of the course ( Big Data, ...)
+	  * @param courseName Not <code>null</code>,  the name of the course ( Big Data, ...)
     */
 	public Course( String courseName) {
 		this.courseName = Strings.nullToEmpty(courseName);
 	}
-
-	// put the idCourse on property of the element
-
 
 	/**
 	 * Returns this course's id, or an empty string if unknown.
@@ -107,7 +124,7 @@ public class Course implements Serializable {
 	 * Sets this course's id.
 	 *
 	 * @param idCourse
-	 *            if <code>null</code>, will be converted to an empty string.
+	 *         Not  <code>null</code>,
 	 */
 	public void setIdCourse(String idCourse) {
 		this.idCourse = Strings.nullToEmpty(idCourse);
@@ -121,12 +138,11 @@ public class Course implements Serializable {
 	public String getDescription() {
 		return description;
 	}
-
+ 
 	/**
 	 * Sets this course's description.
 	 *
-	 * @param description
-	 *            if <code>null</code>, will be converted to an empty string.
+	 * @param description  Not <code>null</code>.
 	 */
 	public void setDescription(String description) {
 		this.description = Strings.nullToEmpty(description);
@@ -143,8 +159,7 @@ public class Course implements Serializable {
 	/**
 	 * Sets this course's name.
 	 *
-	 * @param courseName
-	 *            if <code>null</code>, will be converted to an empty string.
+	 * @param courseName Not <code>null</code>.
 	 */
 	public void setCourseName(String courseName) {
 		this.courseName = Strings.nullToEmpty(courseName);
@@ -153,7 +168,8 @@ public class Course implements Serializable {
 
 	/**
 	 * Returns this course's locale.
-	 *
+	 * 
+	 *@return not  <code>null</code>.
 	 */
 	public Locale getLocale() {
 		return locale;
@@ -162,15 +178,16 @@ public class Course implements Serializable {
 	/**
 	 * Sets this course's locale.
 	 *
-	 * @param locale
+	 * @param locale may be <code>null</code>,
 	 */
 	public void setLocale(Locale locale) {
-		this.locale= locale;
+		this.locale= (locale);
 	}
 
 	/**
 	 * Returns this course's credits.
 	 *
+	 *@return not <code>null</code>.
 	 */
 	public int getCredits() {
 		return credits;
@@ -180,6 +197,7 @@ public class Course implements Serializable {
 	 * Sets this course's credits.
 	 *
 	 * @param credits
+	 * not <code>null</code>.
 	 */
 	public void setCredits(int credits) {
 		this.credits = credits;
@@ -188,6 +206,7 @@ public class Course implements Serializable {
 	/**
 	 * Returns this course's specialty.
 	 *
+	 * @return not <code>null</code>.
 	 */
 	public TypeSpecialty getSpecialty() {
 		return specialty;
@@ -196,7 +215,7 @@ public class Course implements Serializable {
 	/**
 	 * Sets this course's specialty.
 	 *
-	 * @param specialty
+	 * @param specialty Not <code>null</code>,
 	 */
 	public void setSpecialty(TypeSpecialty specialty) {
 		this.specialty= specialty;

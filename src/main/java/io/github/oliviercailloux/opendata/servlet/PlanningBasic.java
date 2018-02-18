@@ -54,7 +54,9 @@ public class PlanningBasic extends HttpServlet {
      * parameter id : id of a planning
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    @SuppressWarnings("resource")
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         final ServletOutputStream out = new ServletHelper().configureAndGetOutputStream(response);
         // Add content type (JSON format)
         response.setContentType("application/json");
@@ -88,7 +90,8 @@ public class PlanningBasic extends HttpServlet {
     /**
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
      */
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    @Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
         doGet(request, response);
     }

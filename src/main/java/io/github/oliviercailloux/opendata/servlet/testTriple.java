@@ -36,6 +36,7 @@ public class testTriple extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		@SuppressWarnings("resource")
 		final ServletOutputStream out = new ServletHelper().configureAndGetOutputStream(response);
@@ -78,7 +79,8 @@ public class testTriple extends HttpServlet {
 	 	 
 	    //get All the Triples
 	     List<Triple> Objects =entityManager.createQuery("select c from Triple c").getResultList();
-	 	 out.println(Objects.get(0).getObject());
+	     entityManager.close();
+	     out.println(Objects.get(0).getObject());
 	 	 
 	 	
 	 	 out.println("End All Operation Triple.");
@@ -87,6 +89,7 @@ public class testTriple extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
