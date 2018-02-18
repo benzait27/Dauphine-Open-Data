@@ -2,10 +2,20 @@ package io.github.oliviercailloux.opendata.entity;
 
 
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Objects;
 import java.util.Optional;
+
+import javax.persistence.Column;
+import javax.persistence.Embedded;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 
 import com.google.common.base.Strings;
 
@@ -15,7 +25,8 @@ import io.github.oliviercailloux.opendata.utils.DateUtils;
  * Created by Ziad & Sofian on 03/12/2017.
  * class that represents a lecture with a date, a room, and a group of participants
  */
-public class Lecture {
+@Entity
+public class Lecture implements Serializable{
 
 
     /**
@@ -31,23 +42,42 @@ public class Lecture {
      "M2 IF"
 
     **/
-
+	private static final long serialVersionUID = 1L;
+	@Embedded
     DateUtils dateUtils;
 
-    /**
+	/**
+     *  The id Lecture
+     *  Not <code>null</code>.
+     */
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private String idLecture;
+    public String getIdLecture() {
+		return idLecture;
+	}
+
+	public void setIdLecture(String idLecture) {
+		this.idLecture = idLecture;
+	}
+
+	/**
      * Course (basic information about course (author, type ...)
      */
+    @JoinColumn(nullable = false)
     private Course course = new Course();
 
     /**
      *  Date of course , we have a getter with date format
      */
+    @Column(nullable = false)
     private Date date = new Date();
 
     /**
      *  ROOM must be defined in a separate class with  multiple information
      *  U_B042"  38-UNIX
      */
+    @Column(nullable = false)
     private String room = "";
 
     /**
@@ -55,6 +85,7 @@ public class Lecture {
      * A5STI86 Gr01
      * M2 IF
      */
+    @Column(nullable = false)
     private String group = "";
 
     /**
@@ -62,6 +93,7 @@ public class Lecture {
      *
      *   the teacher responsible for the lecture.
      */
+    @JoinColumn(nullable = false)
     private Person teacher = new Person();
 
 

@@ -2,7 +2,10 @@ package io.github.oliviercailloux.opendata.utils;
 
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.persistence.Embeddable;
+import javax.persistence.Entity;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.time.DateTimeException;
 import java.time.LocalDateTime;
@@ -18,7 +21,8 @@ import java.util.logging.Logger;
  */
 
 @ApplicationScoped
-public class DateUtils {
+@Embeddable
+public class DateUtils  implements Serializable{
 
     private static final Logger LOGGER = Logger.getLogger(DateUtils.class.getName());
 

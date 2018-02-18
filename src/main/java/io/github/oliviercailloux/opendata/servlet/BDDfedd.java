@@ -10,7 +10,9 @@ import java.util.TreeSet;
 
 import javax.ejb.Local;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.annotation.WebServlet;
@@ -32,6 +34,7 @@ import io.github.oliviercailloux.opendata.utils.ServletHelper;
  */
 @WebServlet("/BDDfedd")
 public class BDDfedd extends HttpServlet {
+	
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -49,12 +52,13 @@ public class BDDfedd extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		@SuppressWarnings("resource")
+		 EntityManagerFactory factory;
+		  EntityManager entityManager;
+		factory =  Persistence.createEntityManagerFactory("Dauphine-Open-Data");
+		entityManager = factory.createEntityManager();
 		final ServletOutputStream out = new ServletHelper().configureAndGetOutputStream(response);
 		out.println("Start DAO opretation");
 		out.flush();
-		
-		JPAutil j= new JPAutil();
-		EntityManager entityManager=j.getEntityManager("Dauphine-Open-Data");
 
 		// add the person
 		Person p=   new Person();

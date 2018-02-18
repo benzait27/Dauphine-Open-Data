@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.annotation.WebServlet;
@@ -41,8 +43,10 @@ public class testCourse extends HttpServlet {
 		out.println("Start DAO opretation");
 		out.flush();
 		
-		JPAutil j= new JPAutil();
-		EntityManager entityManager=j.getEntityManager("Dauphine-Open-Data");
+		 EntityManagerFactory factory;
+		  EntityManager entityManager;
+		factory =  Persistence.createEntityManagerFactory("Dauphine-Open-Data");
+		entityManager = factory.createEntityManager();
 
 		// add all the courses int the BDD
 		EntityTransaction tx = entityManager.getTransaction();

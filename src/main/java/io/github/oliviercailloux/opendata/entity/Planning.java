@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 
 /**
  * Created by Ziad  & Sofian on 03/12/2017.
@@ -23,6 +25,8 @@ public class Planning {
 	// type === table for unique primary key (use in triple)
     @GeneratedValue(strategy = GenerationType.TABLE)
 	private String idPlanning ;
+    
+    @JoinColumn(nullable = false)
     private Person person;
 
     public Planning() {
@@ -33,6 +37,7 @@ public class Planning {
      *  by arrayList or Linkedlist or stream in java 8 ?
 	 *  Not <code>null</code>.
      */
+    @JoinColumn(nullable = false)
     private List<Lecture> lectures;
 
     public Planning(Person person) {

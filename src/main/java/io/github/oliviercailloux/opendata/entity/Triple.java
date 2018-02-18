@@ -3,6 +3,7 @@ package io.github.oliviercailloux.opendata.entity;
 
 import com.google.common.base.Strings;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,16 +28,19 @@ public class Triple {
 	 *  subject is a string containing an id of an object (person or course)
 	 *  not null
 	 */
+    @Column(nullable = false)
 	String subject;
 
 	/**
 	 *  the predicate attached to the subject
 	 */
+    @Column(nullable = false)
 	String predicate="";
 
 	/**
 	 *  object is a string containing the data
 	 */
+    @Column(nullable = false)
 	String object="";
 
     public Triple() {

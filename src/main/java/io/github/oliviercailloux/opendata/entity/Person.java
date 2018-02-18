@@ -1,5 +1,6 @@
 package io.github.oliviercailloux.opendata.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -66,9 +67,11 @@ public class Person {
 	}
 
 	@NotNull
+	@Column(nullable = false)
     private String firstName = "";
 
     @NotNull
+    @Column(nullable = false)
     private String lastName = "";
 
 
@@ -81,6 +84,7 @@ public class Person {
     /**
      * number
      */
+    @Column(nullable = true)
     String number = "";
 
     public FunctionType getRole() {
@@ -94,11 +98,13 @@ public class Person {
 	/**
      * fax number
      */
+	@Column(nullable = true)
     String fax = "";
 
     /**
      *  name of the office
      */
+	@Column(nullable = false)
     String office = "";
 
     /**
@@ -113,11 +119,13 @@ public class Person {
      *
      *
      */
+	@Column(nullable = false)
     List<String> emails = new ArrayList<String>();
 
     /**
      * groups of which the user is a part
      */
+	@Column(nullable = true)
     List<String> structures = new ArrayList<String>();
 
 

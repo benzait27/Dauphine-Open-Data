@@ -5,7 +5,9 @@ import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.annotation.WebServlet;
@@ -43,9 +45,10 @@ public class testPlanning extends HttpServlet {
 		final ServletOutputStream out = new ServletHelper().configureAndGetOutputStream(response);
 		out.println("Start DAO opretation");
 		out.flush();
-		
-		JPAutil j= new JPAutil();
-		EntityManager entityManager=j.getEntityManager("Dauphine-Open-Data");
+		 EntityManagerFactory factory;
+		  EntityManager entityManager;
+		factory =  Persistence.createEntityManagerFactory("Dauphine-Open-Data");
+		entityManager = factory.createEntityManager();
 
 		// add all the Persons int the BDD
 		
@@ -69,7 +72,6 @@ public class testPlanning extends HttpServlet {
         
         
         //Update Person: change the name of the Person Zakaria to Zohir
-        entityManager= j.getEntityManager("Dauphine-Open-Data");
     	p.setFirstName("Zohir");
     	tx.begin();
     	pa.setPerson(p);
