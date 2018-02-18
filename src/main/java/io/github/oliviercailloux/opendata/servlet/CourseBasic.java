@@ -77,15 +77,6 @@ public class CourseBasic extends HttpServlet {
             out.println("Impossible to find course with id : "+ idCourse);
         }
 
-        out.flush();
-
     }
 
-    /**
-     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-     */
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO Auto-generated method stub
-        doGet(request, response);
-    }
 }

@@ -13,6 +13,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import java.io.Serializable;
 
 /**
  * CoursePart is an  object to represent type of course {( TD,30H, Teacher1), (CM,15H,Teacher2), ...}. 
@@ -20,7 +21,8 @@ import javax.persistence.OneToOne;
  * @author     Ouafa BOUCENNA
  */
 @Entity
-public final class  CoursePart {
+
+public class CoursePart implements Serializable{
 	
 	
 	/**

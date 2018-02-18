@@ -9,9 +9,7 @@ public class JPAutil {
 	
 	private  EntityManagerFactory factory;
 	private   EntityManager entityManager;
-	
-	//public static EntityManager getEntityManager(String pu)
-	
+
 	public EntityManager getEntityManager(String persistUnit) {
 		
 		if (entityManager==null)

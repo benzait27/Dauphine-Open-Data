@@ -109,7 +109,7 @@ public class Dao {
 
     /**
      * get all data for a subject
-     * @param subject
+     * @param subject use in createQuery
      * @return list of triple
      */
     public List<Triple> getTriple(String subject){

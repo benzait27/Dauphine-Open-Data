@@ -117,17 +117,10 @@ public class BDDfedd extends HttpServlet {
 	 	tx.commit();
 	 	entityManager.close();
 	 	out.println("End all operation");
+
 		out.flush();
 	}
 	
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
+	
 
 }

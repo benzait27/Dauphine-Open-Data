@@ -2,13 +2,8 @@ package io.github.oliviercailloux.opendata.servlet;
 
 import ezvcard.VCard;
 import io.github.oliviercailloux.opendata.dao.Dao;
-import io.github.oliviercailloux.opendata.entity.Person;
-import io.github.oliviercailloux.opendata.mapper.JsonMapper;
-import io.github.oliviercailloux.opendata.mapper.VcardMapper;
 import io.github.oliviercailloux.opendata.utils.ServletHelper;
-
 import javax.inject.Inject;
-import javax.persistence.EntityManager;
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.annotation.WebServlet;
@@ -31,15 +26,6 @@ public class PersonBasic extends HttpServlet {
     @Inject
     private Dao dao;
 
-    /**
-     * mapper json to object and object to json
-     */
-    @Inject
-    private JsonMapper jsonMapper;
-
-    @Inject
-    private VcardMapper vcardMapper;
-
 
     private static final Logger LOGGER = Logger.getLogger(PersonBasic.class.getName());
 
@@ -53,8 +39,8 @@ public class PersonBasic extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         final ServletOutputStream out = new ServletHelper().configureAndGetOutputStream(response);
-        // Add content type (JSON format)
-        response.setContentType("application/json");
+        // Add content type (vcard format)
+        response.setContentType("text/vcf");
         response.setCharacterEncoding("UTF-8");
         // check parameter
         String idPerson = request.getParameter("id");
@@ -67,27 +53,14 @@ public class PersonBasic extends HttpServlet {
 
         VCard vcard = dao.getPerson(idPerson);
 
-        if (vcard != null) {
-            LOGGER.info(" successful find person with id : "+idPerson);
-            String json = jsonMapper.convertObjectToJson(vcard);
-            out.println(json);
-
-        }
-        else{
+        if (vcard == null) {
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
             out.println("Impossible to find person with id : "+ idPerson);
+            return ;
         }
-
-        out.flush();
+        LOGGER.info(" successful find person with id : "+idPerson);
+        out.println(String.valueOf(vcard));
 
     }
 
-    /**
-     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-     */
-    @Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO Auto-generated method stub
-        doGet(request, response);
-    }
 }
