@@ -9,6 +9,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import java.io.Serializable;
 
 /**
  * CourseType is an  object to represent type of course {( TD,30H), (CM,15H), ...}. 
@@ -18,7 +19,7 @@ import javax.persistence.OneToOne;
  * @since       1.0
  */
 @Entity
-public class CoursePart {
+public class CoursePart implements Serializable{
 	
 	
 	/**

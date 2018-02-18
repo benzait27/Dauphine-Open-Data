@@ -34,11 +34,6 @@ public class PlanningBasic extends HttpServlet {
     @Inject
     private Dao dao;
 
-    /**
-     * mapper json to object and object to json
-     */
-    @Inject
-    private JsonMapper jsonMapper;
 
     /**
      * mapper beetwen Planning class and Icalendar
@@ -56,8 +51,8 @@ public class PlanningBasic extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         final ServletOutputStream out = new ServletHelper().configureAndGetOutputStream(response);
-        // Add content type (JSON format)
-        response.setContentType("application/json");
+        // Add content type (mime type of icalendar)
+        response.setContentType("text/calendar");
         response.setCharacterEncoding("UTF-8");
         // check parameter
         String idPlanning = request.getParameter("id");
@@ -70,26 +65,14 @@ public class PlanningBasic extends HttpServlet {
 
         // get planning
         ICalendar iCalendar = dao.getPlanning(idPlanning);
-        if (iCalendar != null) {
-            LOGGER.info(" successful find person with id : "+idPlanning);
-            String json = jsonMapper.convertObjectToJson(iCalendar);
-            out.println(json);
-
-        }
-        else{
+        if (iCalendar == null) {
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
             out.println("Impossible to find planning with id : "+ idPlanning);
+            return ;
         }
 
-        out.flush();
-
+        LOGGER.info(" successful find person with id : "+idPlanning);
+        out.println(String.valueOf(iCalendar));
     }
 
-    /**
-     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-     */
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO Auto-generated method stub
-        doGet(request, response);
-    }
 }
